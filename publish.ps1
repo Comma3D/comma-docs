@@ -110,7 +110,7 @@ try {
     Get-ChildItem -Force | Where-Object { $_.Name -ne ".git" } | Remove-Item -Recurse -Force
 
     $copy = @(
-        "content", "layouts", "static", "hugo.yaml", ".gitignore",
+        "content", "layouts", "static", "assets", "hugo.yaml", ".gitignore",
         "README.md", ".github", "_build-content.ps1", "publish.ps1"
     )
     foreach ($name in $copy) {

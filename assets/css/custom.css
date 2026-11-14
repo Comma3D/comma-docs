@@ -1,0 +1,12 @@
+/* Brand primary matches the Comma orange mark (~#F97316). */
+:root {
+  --primary-hue: 25deg;
+  --primary-saturation: 95%;
+  --primary-lightness: 53%;
+}
+
+.dark {
+  --primary-hue: 25deg;
+  --primary-saturation: 95%;
+  --primary-lightness: 55%;
+}
