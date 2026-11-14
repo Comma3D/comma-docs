@@ -3,7 +3,7 @@ title: Changelog
 weight: 4
 ---
 
-Package Manager update history for **CommaRh**. Source of truth: `src/CommaRh/CHANGELOG.md`. GitHub Releases use tags `CommaRh-v*` on [Comma3D/Comma](https://github.com/Comma3D/Comma/releases?q=CommaRh).
+Package Manager update history for **CommaRh**. Source of truth: `src/CommaRh/CHANGELOG.md`. Public GitHub Releases: [CommaRh-v* on comma-docs](https://github.com/Comma3D/comma-docs/releases).
 
 Report new problems on [Issues](https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arhino) — do not open issues for past release notes.
 
