@@ -5,17 +5,21 @@ aliases:
   - /help/uscalecrvatt/
 ---
 
-Where to find it: `commaMenu` → **Curve** → `uScaleCrvAtt`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Curve** | `uScaleCrvAtt` |
 
 Scales curves about their midpoint, or extends them by a length on both ends, the start, or the end.
 
-## Options
+#### Steps
+
+1. Select curves to scale` or `Select curves to extend
+2. then `Scale Factor` or `Extension length`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
 | Mode | Scale or Extend. |
 | Side | Both / Start / End (Extend only). |
-
-## Prompts
-
-`Select curves to scale` or `Select curves to extend`; then `Scale Factor` or `Extension length`.

@@ -5,11 +5,18 @@ aliases:
   - /help/udwg/
 ---
 
-Where to find it: `commaMenu` → **CAD** → `uDwg`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **CAD** | `uDwg` |
 
 Transfers selected curves, points, blocks, dimensions, hatches, and text to a running AutoCAD session via COM / DWG batch.
 
-## Options
+#### Steps
+
+1. Select objects to transfer (Esc to cancel)`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
@@ -17,11 +24,3 @@ Transfers selected curves, points, blocks, dimensions, hatches, and text to a ru
 | KeepStyle | ByLayer or ByObject. |
 | ConvertCurve | No/Yes. |
 | InsertBlock | Integer; 0 = always block. |
-
-## Prompts
-
-`Select objects to transfer (Esc to cancel)`.
-
-## Limits
-
-Free/Trial: maximum 5 objects.

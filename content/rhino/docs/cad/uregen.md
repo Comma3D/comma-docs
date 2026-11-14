@@ -5,6 +5,8 @@ aliases:
   - /help/uregen/
 ---
 
-Where to find it: `commaMenu` → **CAD** → `uRegen`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **CAD** | `uRegen` |
 
 Calls AutoCAD `Regen` on the active document through COM. AutoCAD must be running.

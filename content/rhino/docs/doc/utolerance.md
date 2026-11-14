@@ -5,11 +5,13 @@ aliases:
   - /help/utolerance/
 ---
 
-Where to find it: `commaMenu` → **Doc** → `uTolerance`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Doc** | `uTolerance` |
 
 Opens a floating toolbar that temporarily overrides Absolute Tolerance while other commands run. Turning it off restores the file tolerance.
 
-## Options
+#### Options
 
 | Option | What it does |
 | --- | --- |

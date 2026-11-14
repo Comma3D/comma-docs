@@ -5,11 +5,20 @@ aliases:
   - /help/ucombinenurbs/
 ---
 
-Where to find it: `commaMenu` → **Brep** → `uCombineNurbs`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Brep** | `uCombineNurbs` |
 
 Extracts and direction-matches Brep or surface edges, rebuilds them, and loft-combines them. Preview first, then bake.
 
-## Options
+#### Steps
+
+1. Select Breps or surfaces to combine
+2. Select direction curve
+3. Guide point (Enter when done)`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
@@ -18,11 +27,3 @@ Extracts and direction-matches Brep or surface edges, rebuilds them, and loft-co
 | AngleTolerance / SampleCount / SegmentLength / JoinTolerance | Rebuild and join controls. |
 | SplitZone / ClosedLoft / SortByBoundary / GuidePoints / PairSimilar | Matching and loft behaviour. |
 | DeleteOriginal / GroupResult / CapResult / ShowIsocurves | Yes/No result toggles. |
-
-## Prompts
-
-`Select Breps or surfaces to combine`; `Select direction curve`; `Guide point (Enter when done)`.
-
-## Limits
-
-Free/Trial: preview only; baking is disabled.

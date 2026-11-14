@@ -5,14 +5,12 @@ aliases:
   - /help/uquicktools/
 ---
 
-Where to find it: `commaMenu` → **Doc** → `uQuickTools`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Doc** | `uQuickTools` |
 
 Shows the Quick Tools menu at the cursor. Each item runs a configured command or macro (Once / PerObject). Configure the list with `uQuickToolsConfig`.
 
-## Prompts
+#### Steps
 
-`Select item from quick tools (move to highlight, click to run, ESC to cancel)`
-
-## Limits
-
-Free/Trial: Quick Tools is Pro-gated.
+1. Select item from quick tools (move to highlight, click to run, ESC to cancel)

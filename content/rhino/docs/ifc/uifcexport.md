@@ -5,11 +5,18 @@ aliases:
   - /help/uifcexport/
 ---
 
-Where to find it: `commaMenu` → **IFC** → `uIfcExport`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **IFC** | `uIfcExport` |
 
 Exports the selection to IFC through Python ifcopenshell or Xbim after an options dialog. Default SitePlacement is Local (OpenBIM). Missing SitePlacement / MapConversion values are seeded into Document User Text when needed.
 
-## Options
+#### Steps
+
+1. Select objects to export to IFC`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
@@ -17,14 +24,6 @@ Exports the selection to IFC through Python ifcopenshell or Xbim after an option
 | Schema | IFC2x3 / IFC4 / IFC4.3. |
 | Meshing | Render Mesh or Detail Mesh (+ max angle / edge). |
 | IFC4X3 Bridge / Optimize IFC4 mesh / detailed .log | Schema extras. |
-
-## Prompts
-
-`Select objects to export to IFC`.
-
-## Limits
-
-Free/Trial: IFC export is Pro-gated.
 
 ## Document User Text
 

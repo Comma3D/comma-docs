@@ -5,11 +5,18 @@ aliases:
   - /help/uobject/
 ---
 
-Where to find it: `commaMenu` → **Doc** → `uObject`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Doc** | `uObject` |
 
 Opens the Object / Select Similar dock panel for property-based matching. Select objects in the model, then use the panel columns and **Select Similar**.
 
-## Options
+#### Steps
+
+1. Status on open: `Select one or more objects to begin.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
@@ -18,7 +25,3 @@ Opens the Object / Select Similar dock panel for property-based matching. Select
 | Select Similar | Match from the current selection using the visible properties. |
 | All / None (per type) | Select or clear rows by object type. |
 | Area / Volume | Quick links; unit toggle mm²/m². |
-
-## Prompts
-
-Status on open: `Select one or more objects to begin.`

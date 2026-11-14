@@ -5,16 +5,20 @@ aliases:
   - /help/uflipcrv/
 ---
 
-Where to find it: `commaMenu` → **Curve** → `uFlipCrv`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Curve** | `uFlipCrv` |
 
 Flips curve direction to match a vector, a world axis, or a guide-curve tangent.
 
-## Options
+#### Steps
+
+1. Select curves to flip
+2. then pick a flip vector or `Select guide curve`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
 | X / Y / Z / Crv | Flip toward that axis or toward a guide curve. |
-
-## Prompts
-
-`Select curves to flip`; then pick a flip vector or `Select guide curve`.

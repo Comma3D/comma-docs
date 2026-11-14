@@ -5,11 +5,18 @@ aliases:
   - /help/umeshtonurbs/
 ---
 
-Where to find it: `commaMenu` → **Mesh** → `uMeshToNurbs`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Mesh** | `uMeshToNurbs` |
 
 Converts meshes (including IFC tessellation) to NURBS while keeping attributes. Quality presets drive faceted and analytic fits (prisms, tubes, circular holes, auto-heal). Rotational parts become real cylinders or cones; multi-piece meshes convert piece by piece and unconvertible pieces stay meshes (PARTIAL).
 
-## Options
+#### Steps
+
+1. Select IFC meshes (Enter = all meshes)`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
@@ -19,11 +26,3 @@ Converts meshes (including IFC tessellation) to NURBS while keeping attributes. 
 | Mode (Advanced) | Auto / Primitives / Pipe / Extrude / Freeform. |
 | Method (Advanced) | Smart / Faceted / Analytic. |
 | HealOpen / Tolerance / TimeLimit / MaxFaces / CheckObjects / Report | Advanced conversion controls (Tolerance 0 = auto). |
-
-## Prompts
-
-`Select IFC meshes (Enter = all meshes)`.
-
-## Limits
-
-Free/Trial: maximum 50 meshes per run.

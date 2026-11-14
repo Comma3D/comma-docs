@@ -5,10 +5,16 @@ aliases:
   - /help/ufindcreateblock/
 ---
 
-Where to find it: `commaMenu` → **Drafting** → `uFindCreateBlock`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Drafting** | `uFindCreateBlock` |
 
 Finds rigidly translated or rotated copies of a selected assembly and converts the matches to one block definition.
 
-## Prompts
+#### Steps
 
-`Select one repeated assembly…`; `Block base point`; `Matching tolerance`; `New block name`; confirm convert (No/Yes).
+1. Select one repeated assembly…
+2. Block base point
+3. Matching tolerance
+4. New block name
+5. confirm convert (No/Yes).

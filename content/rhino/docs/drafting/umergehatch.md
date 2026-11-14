@@ -5,10 +5,12 @@ aliases:
   - /help/umergehatch/
 ---
 
-Where to find it: `commaMenu` → **Drafting** → `uMergeHatch`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Drafting** | `uMergeHatch` |
 
 Unions two or more hatches into one hatch, keeping the first hatch's pattern.
 
-## Prompts
+#### Steps
 
-`Select hatches to merge`.
+1. Select hatches to merge`.

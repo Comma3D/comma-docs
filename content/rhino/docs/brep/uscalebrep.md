@@ -5,10 +5,13 @@ aliases:
   - /help/uscalebrep/
 ---
 
-Where to find it: `commaMenu` → **Brep** → `uScaleBrep`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Brep** | `uScaleBrep` |
 
 Scales Brep, Mesh, or Surface geometry about the centroid by a factor.
 
-## Prompts
+#### Steps
 
-`Select Brep/Mesh/Surface to scale`; `Scale Factor`.
+1. Select Brep/Mesh/Surface to scale
+2. Scale Factor`.

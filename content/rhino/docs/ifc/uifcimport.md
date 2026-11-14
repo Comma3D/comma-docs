@@ -5,11 +5,13 @@ aliases:
   - /help/uifcimport/
 ---
 
-Where to find it: `commaMenu` → **IFC** → `uIfcImport`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **IFC** | `uIfcImport` |
 
 Dialog import of IFC file(s) or a folder through Rhino built-in, IfcOpenShell, or xBIM, with offset and layer options.
 
-## Options
+#### Options
 
 | Option | What it does |
 | --- | --- |

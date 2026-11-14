@@ -5,17 +5,20 @@ aliases:
   - /help/ulength/
 ---
 
-Where to find it: `commaMenu` → **Drafting** → `uLength`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Drafting** | `uLength` |
 
 Sums the lengths of selected curves; optional bake as a text dot.
 
-## Options
+#### Steps
+
+1. Select Curves`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
 | BakeResult | No/Yes. |
 | UnitDisplay | Document or Meters. |
-
-## Prompts
-
-`Select Curves`.

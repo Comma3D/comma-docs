@@ -5,11 +5,18 @@ aliases:
   - /help/umeshpatch/
 ---
 
-Where to find it: `commaMenu` → **Mesh** → `uMeshPatch`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Mesh** | `uMeshPatch` |
 
 Patches a mesh from closed boundary curve(s) using a tensile soap-film or Laplacian relax.
 
-## Options
+#### Steps
+
+1. Select closed boundary curve(s) to patch`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
@@ -17,7 +24,3 @@ Patches a mesh from closed boundary curve(s) using a tensile soap-film or Laplac
 | SlideBoundary | Fixed or Slide. |
 | RelaxMode | Laplacian or Tensile. |
 | MatchAttributes / DeleteInput | No/Yes. |
-
-## Prompts
-
-`Select closed boundary curve(s) to patch`.

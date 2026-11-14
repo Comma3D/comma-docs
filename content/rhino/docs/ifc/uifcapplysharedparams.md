@@ -5,13 +5,16 @@ aliases:
   - /help/uifcapplysharedparams/
 ---
 
-Where to find it: `commaMenu` → **IFC** → `uIfcApplySharedParams`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **IFC** | `uIfcApplySharedParams` |
 
 Copies `IFC.SharedParam.*[Type]` document keys onto the selection (skips keys that already exist on the object). The type token is in the key; the value is user data.
 
-## Prompts
+#### Steps
 
-`Select objects to apply shared parameters`.
+1. Select objects to apply shared parameters`.
+
 
 ## Key shape
 

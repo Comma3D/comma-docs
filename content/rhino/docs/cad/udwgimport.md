@@ -5,11 +5,13 @@ aliases:
   - /help/udwgimport/
 ---
 
-Where to find it: `commaMenu` → **CAD** → `uDwgImport`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **CAD** | `uDwgImport` |
 
 Dialog import of one or more DWG/DXF files or a folder, with a unit override.
 
-## Options
+#### Options
 
 | Option | What it does |
 | --- | --- |

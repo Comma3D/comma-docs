@@ -5,18 +5,21 @@ aliases:
   - /help/ulevel/
 ---
 
-Where to find it: `commaMenu` → **Drafting** → `uLevel`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Drafting** | `uLevel` |
 
 Reports a point level along X, Y, or Z relative to World or CPlane.
 
-## Options
+#### Steps
+
+1. Pick point`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
 | BakeResult / UnitDisplay | Bake and units. |
 | Reference | CPlane or World. |
 | AxisX / AxisY / AxisZ | Cycle which axis is reported. |
-
-## Prompts
-
-`Pick point`.

@@ -5,17 +5,21 @@ aliases:
   - /help/uslope/
 ---
 
-Where to find it: `commaMenu` → **Drafting** → `uSlope`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Drafting** | `uSlope` |
 
 In-plane slope (run = X, rise = Y) in World or CPlane, as percent or ratio; optional draw at a slope %.
 
-## Options
+#### Steps
+
+1. Pick Point 1 (Top/Bottom)
+2. Pick Point 2` or run direction.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
 | BakeResult / Display / Plane | Bake, Percent/Ratio, CPlane/World. |
 | Draw / Slope / Scale | Optional draw helpers. |
-
-## Prompts
-
-`Pick Point 1 (Top/Bottom)`; `Pick Point 2` or run direction.

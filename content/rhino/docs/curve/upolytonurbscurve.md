@@ -5,16 +5,19 @@ aliases:
   - /help/upolytonurbscurve/
 ---
 
-Where to find it: `commaMenu` → **Curve** → `uPolyToNurbsCurve`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Curve** | `uPolyToNurbsCurve` |
 
 Filters polyline vertices by tolerance, then replaces the polyline with a cubic interpolated NURBS curve.
 
-## Options
+#### Steps
+
+1. Select polyline curves`.
+
+
+#### Options
 
 | Option | What it does |
 | --- | --- |
 | Tolerance | Vertex filter tolerance. |
-
-## Prompts
-
-`Select polyline curves`.

@@ -25,11 +25,12 @@ function OptTable([string[]]$rows) {
 }
 
 function CmdPage($section, $slug, $title, $weight, $group, $onMenu, $summary, $options, $prompts, $limits, $extra) {
+    # $limits kept for call-site compatibility; never written to the page.
     $alias = $title.ToLowerInvariant()
     if ($onMenu) {
-        $where = "Where to find it: ``commaMenu`` $arrow **$group** $arrow ``$title``."
+        $menu = "``commaMenu`` $arrow **$group**"
     } else {
-        $where = "Where to find it: type ``$title``."
+        $menu = "Not on ``commaMenu``. Type the command name."
     }
     $optBlock = OptTable $options
     $body = @"
@@ -40,18 +41,31 @@ aliases:
   - /help/$alias/
 ---
 
-$where
+| Menu | Command |
+| --- | --- |
+| $menu | ``$title`` |
 
 $summary
 "@
-    if ($optBlock) {
-        $body += "`n`n## Options`n`n$optBlock"
-    }
     if ($prompts) {
-        $body += "`n`n## Prompts`n`n$prompts"
+        # Turn prompt strings into Rhino-style Steps when they look like a sequence.
+        $steps = @()
+        foreach ($p in ($prompts -split ';')) {
+            $t = $p.Trim().TrimStart('`').TrimEnd('`').Trim()
+            if ($t) { $steps += $t }
+        }
+        if ($steps.Count -gt 0) {
+            $body += "`n`n#### Steps`n"
+            $i = 1
+            foreach ($s in $steps) {
+                $body += "`n$i. $s"
+                $i++
+            }
+            $body += "`n"
+        }
     }
-    if ($limits) {
-        $body += "`n`n## Limits`n`n$limits"
+    if ($optBlock) {
+        $body += "`n`n#### Options`n`n$optBlock"
     }
     if ($extra) {
         $body += "`n`n$extra"

@@ -5,11 +5,13 @@ aliases:
   - /help/uattribute/
 ---
 
-Where to find it: `commaMenu` → **Doc** → `uAttribute`.
+| Menu | Command |
+| --- | --- |
+| `commaMenu` → **Doc** | `uAttribute` |
 
 Opens Attribute Manager to sync and edit Layer, Name, Color, and user keys, with optional area/volume calculation.
 
-## Options
+#### Options
 
 | Option | What it does |
 | --- | --- |
@@ -19,7 +21,3 @@ Opens Attribute Manager to sync and edit Layer, Name, Color, and user keys, with
 | Clear Color / Group / Expand | Colour and grouping helpers. |
 | Cal Volume / Cal Area + mm/m | Compute and show measures. |
 | Import / Export / Web | Exchange attribute tables. |
-
-## Limits
-
-Free/Trial: Attribute Manager is Pro-gated.
