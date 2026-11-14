@@ -1,72 +1,72 @@
 # CommaRh updates
 
-What changed in each Package Manager version. Short notes for everyday use — not a developer log.
+Short notes for Package Manager users.
 
 ## [26.1.9] - 2026-11-14
 
-- **User Manual** and **About** open the online docs site.
-- Docs and update history live at [comma-docs](https://comma3d.github.io/comma-docs/rhino/).
+- Help and About open the online docs website.
+- Update history is on the docs site.
 
 ## [26.1.8] - 2026-11-11
 
-- **uMeshToNurbs:** better tubes, bolts, washers, and multi-piece meshes (e.g. Tekla).
-- Faster runs; fewer freezes on dense meshes; clearer summary of what converted.
+- Mesh to NURBS handles tubes, fasteners, and multi-piece models better.
+- Faster and more stable on large meshes.
 
 ## [26.1.7] - 2026-11-06
 
-- **uMeshToNurbs:** better beams, columns, and pipes in Auto mode.
+- Mesh to NURBS improved for beams, columns, and pipes.
 
 ## [26.1.6] - 2026-11-05
 
-- **uDwg:** curves stay joined when sent to AutoCAD; fewer split line/arc pieces.
-- New options for large batches and freeform curves.
+- DWG / AutoCAD export keeps curves joined more reliably.
+- Better handling of large batches and freeform curves.
 
 ## [26.1.5] - 2026-11-04
 
-- **uDwg:** freeform curves convert more cleanly for AutoCAD join.
-- **uMeshToNurbs:** simpler **Quality** setting; partial success keeps good pieces as NURBS.
+- Cleaner curve export to AutoCAD.
+- Simpler quality choice for mesh to NURBS; partial results keep the good pieces.
 
 ## [26.1.4] - 2026-11-03
 
-- Fixes for Rhino 8.36 / .NET 10 (plugin load and AutoCAD link).
-- **uMeshToNurbs** and **uMeshOutline** on the Mesh menu.
-- IFC export: clearer site height / storey defaults; richer shared-parameter types.
+- Fixes for current Rhino 8 / Windows setups.
+- Mesh tools easier to find in the menu.
+- Clearer IFC export defaults for site and storeys.
 
 ## [26.1.3] - 2026-11-03
 
-- Package update (load fix completed in 26.1.4).
+- Package update (follow-up load fix in 26.1.4).
 
 ## [26.1.2] - 2026-10-18
 
-- DWG hatch/annotation fixes; annotation scale UI more stable.
-- IFC import layers follow the building hierarchy by default.
-- Menu and panel UI polish.
+- DWG and annotation stability improvements.
+- IFC import layers follow the building structure by default.
+- Menu and panels polished.
 
 ## [26.1.1] - 2026-10-16
 
-- DWG stability fix in packaged builds.
-- Packaging fixes for IFC geometry engines.
+- DWG stability in the Package Manager build.
+- Packaging fixes for IFC tools.
 
 ## [26.1.0] - 2026-09-01
 
-- Type menu: **Doc / Curve / Surface / Brep / Mesh / Drafting / CAD / IFC**.
-- New or refreshed: **uObject**, **uTolerance**, **uSort**, **uFindCreateBlock**.
-- About, licence entry, and docs aligned with this workflow.
+- Tools grouped by type: Doc, Curve, Surface, Brep, Mesh, Drafting, CAD, IFC.
+- New object, tolerance, sort, and block-finding workflows.
+- About and licence entry updated for this layout.
 
 ## [26.0.3] - 2026-08-26
 
-- **uLayer:** clearer main-layer naming (`::` for sublayers).
+- Clearer layer naming when using a main layer.
 
 ## [26.0.2] - 2026-08-04
 
-- **uLayer:** optional main layer for nested layer buttons.
+- Optional main layer for nested layer buttons.
 
 ## [26.0.1] - 2026-07-19
 
-- Mesh-to-NURBS and outline improvements.
-- Licence offline grace and registration polish.
+- Mesh conversion and outline improvements.
+- Licence and registration polish.
 
 ## [26.0.0] - 2026-07-07
 
-- Signed licence keys and updated licence manager.
-- IFC shared parameters with typed keys.
+- Signed licence keys.
+- Typed IFC shared parameters.
