@@ -295,6 +295,88 @@ $($s.blurb)
 "@
 }
 
+W "tekla/_index.md" @"
+---
+title: CommaTs
+layout: hextra-home
+---
+
+{{< hextra/hero-badge >}}
+  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
+  <span>Tekla Structures</span>
+{{< /hextra/hero-badge >}}
+
+<div class="hx:mt-6 hx:mb-6">
+{{< hextra/hero-headline >}}
+  CommaTs
+{{< /hextra/hero-headline >}}
+</div>
+
+<div class="hx:mb-12">
+{{< hextra/hero-subtitle >}}
+  Model and drawing plugins for Tekla Structures.&nbsp;<br class="hx:sm:block hx:hidden" />
+  Guide pages will publish here as the Tekla team pushes them.
+{{< /hextra/hero-subtitle >}}
+</div>
+
+<div class="hx:mb-6 hx:flex hx:flex-wrap hx:gap-3">
+{{< hextra/hero-button text="Docs placeholder" link="docs" >}}
+{{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Atekla" >}}
+</div>
+"@
+
+W "tekla/docs/_index.md" @"
+---
+title: CommaTs docs
+linkTitle: Documentation
+cascade:
+  type: docs
+---
+
+Tekla guide content is not in this repository yet. Collaborators can add markdown under ``content/tekla/docs/`` on ``main``; GitHub Actions will publish it.
+
+Until then, the existing public Tekla guide remains at [trungvuduy.github.io/comma-ts-releases](https://trungvuduy.github.io/comma-ts-releases/). Use the ``tekla`` label on [Issues](https://github.com/Comma3D/comma-docs/issues).
+"@
+
+W "revit/_index.md" @"
+---
+title: CommaRvt
+layout: hextra-home
+---
+
+{{< hextra/hero-badge >}}
+  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
+  <span>Revit</span>
+{{< /hextra/hero-badge >}}
+
+<div class="hx:mt-6 hx:mb-6">
+{{< hextra/hero-headline >}}
+  CommaRvt
+{{< /hextra/hero-headline >}}
+</div>
+
+<div class="hx:mb-12">
+{{< hextra/hero-subtitle >}}
+  Revit tools — placeholder until the product ships.
+{{< /hextra/hero-subtitle >}}
+</div>
+
+<div class="hx:mb-6">
+{{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arevit" >}}
+</div>
+"@
+
+W "revit/docs/_index.md" @"
+---
+title: CommaRvt docs
+linkTitle: Documentation
+cascade:
+  type: docs
+---
+
+CommaRvt is not released yet. This section is a placeholder so the suite navbar stays stable. Use the ``revit`` label on [Issues](https://github.com/Comma3D/comma-docs/issues) when that product starts.
+"@
+
 # Detailed command pages (Steps + Options from code research)
 $gen = Join-Path $PSScriptRoot "_gen_commands.py"
 if (-not (Test-Path $gen)) { throw "_gen_commands.py missing." }
