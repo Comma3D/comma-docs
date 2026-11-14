@@ -387,20 +387,20 @@ if (-not (Test-Path $gen)) { throw "_gen_commands.py missing." }
 python $gen
 if ($LASTEXITCODE -ne 0) { throw "_gen_commands.py failed." }
 
-# CommaRh Package Manager history (from repo CHANGELOG — not GitHub Issues)
-$changelogSrc = Join-Path $PSScriptRoot "..\CommaRh\CHANGELOG.md"
-if (-not (Test-Path $changelogSrc)) { throw "CommaRh CHANGELOG.md missing at $changelogSrc" }
+# CommaRh Package Manager history — short user notes (not the developer CHANGELOG)
+$changelogSrc = Join-Path $PSScriptRoot "_changelog-user.md"
+if (-not (Test-Path $changelogSrc)) { throw "_changelog-user.md missing." }
 $clBody = [System.IO.File]::ReadAllText($changelogSrc).Trim()
-$clBody = [regex]::Replace($clBody, "^#\s+Changelog\s*", "", "IgnoreCase")
+$clBody = [regex]::Replace($clBody, "^#\s+[^\r\n]+\s*", "")
 $changelogPage = @"
 ---
 title: Changelog
 weight: 4
 ---
 
-Package Manager update history for **CommaRh**. Source of truth: ``src/CommaRh/CHANGELOG.md``. Public GitHub Releases: [CommaRh-v* on comma-docs](https://github.com/Comma3D/comma-docs/releases).
+What changed in each **CommaRh** Package Manager version.
 
-Report new problems on [Issues](https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arhino) — do not open issues for past release notes.
+Report a new problem on [Issues](https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arhino). Release tags: [CommaRh-v* on comma-docs](https://github.com/Comma3D/comma-docs/releases).
 
 $clBody
 "@
