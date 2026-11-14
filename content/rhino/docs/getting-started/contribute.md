@@ -1,6 +1,6 @@
 ---
 title: Contribute to the guide
-weight: 5
+weight: 6
 ---
 
 The guide source lives in the public repository [Comma3D/comma-docs](https://github.com/Comma3D/comma-docs). Plugin source stays private.

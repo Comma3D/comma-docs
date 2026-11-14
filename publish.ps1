@@ -35,9 +35,24 @@ function Ensure-Theme {
     if ($LASTEXITCODE -ne 0) { throw "Could not clone Hextra." }
 }
 
+function Get-GhIdentity {
+    # Use the active `gh` account (lamlvo / teammate), not a shared Comma3D identity.
+    $login = (gh api user -q .login 2>$null)
+    if (-not $login) { throw "Not logged in to gh. Run: gh auth login (personal account with Write on $Repo)" }
+    $id = (gh api user -q .id 2>$null)
+    return @{
+        Name  = $login
+        Email = "$id+$login@users.noreply.github.com"
+        Login = $login
+    }
+}
+
 function Invoke-Git {
-    param([Parameter(Mandatory = $true)][string[]]$GitArgs)
-    & git -c user.name=Comma -c user.email=225508501+Comma3D@users.noreply.github.com @GitArgs
+    param(
+        [Parameter(Mandatory = $true)][string[]]$GitArgs,
+        [hashtable]$Identity
+    )
+    & git -c "user.name=$($Identity.Name)" -c "user.email=$($Identity.Email)" @GitArgs
     if ($LASTEXITCODE -ne 0) { throw "git failed: git $($GitArgs -join ' ')" }
 }
 
@@ -78,9 +93,12 @@ if ($viewExit -ne 0) {
     $createExit = $LASTEXITCODE
     $ErrorActionPreference = $prev
     if ($createExit -ne 0) {
-        throw "Could not create $Repo. Switch gh to Comma3D and retry."
+        throw "Could not create $Repo. Need admin on Comma3D (or ask an owner to create the repo)."
     }
 }
+
+$identity = Get-GhIdentity
+Write-Host "Publishing as $($identity.Login) (active gh account)"
 
 $monorepo = Resolve-Path (Join-Path $SiteRoot "..\..")
 $sha = (& git -C $monorepo.Path rev-parse --short HEAD).Trim()
@@ -94,13 +112,13 @@ if ($LASTEXITCODE -ne 0) { throw "Could not read $originUrl." }
 
 if ($remoteHead) {
     git clone --branch main --single-branch $originUrl $work
-    if ($LASTEXITCODE -ne 0) { throw "Could not clone main." }
+    if ($LASTEXITCODE -ne 0) { throw "Could not clone main. Check Write access on $Repo for $($identity.Login)." }
 } else {
     New-Item -ItemType Directory -Force -Path $work | Out-Null
     Push-Location $work
     try {
-        Invoke-Git -GitArgs @("init", "-b", "main")
-        Invoke-Git -GitArgs @("remote", "add", "origin", $originUrl)
+        Invoke-Git -Identity $identity -GitArgs @("init", "-b", "main")
+        Invoke-Git -Identity $identity -GitArgs @("remote", "add", "origin", $originUrl)
     }
     finally { Pop-Location }
 }
@@ -120,14 +138,14 @@ try {
         }
     }
 
-    Invoke-Git -GitArgs @("add", "-A")
+    Invoke-Git -Identity $identity -GitArgs @("add", "-A")
     $dirty = git status --porcelain
     if ($dirty) {
-        Invoke-Git -GitArgs @("commit", "-m", $message)
+        Invoke-Git -Identity $identity -GitArgs @("commit", "-m", $message)
         if ($remoteHead) {
-            Invoke-Git -GitArgs @("push", "origin", "main")
+            Invoke-Git -Identity $identity -GitArgs @("push", "origin", "main")
         } else {
-            Invoke-Git -GitArgs @("push", "-u", "origin", "main")
+            Invoke-Git -Identity $identity -GitArgs @("push", "-u", "origin", "main")
         }
     } else {
         Write-Host "main is already current."

@@ -7,7 +7,8 @@ Every public command documented under Rhino ships together in one Package Manage
 
 - To install: open Rhino 8 on Windows, run `PackageManager`, search for `CommaRh`, and click **Install**.
 - Supported versions: Rhino 8 (Windows).
-- Current guide version: 26.1.8. Package Manager shows the version that is installed on this computer.
+- Current guide version: 26.1.9. Package Manager shows the version that is installed on this computer.
+- Update history: [Changelog](changelog/) (and GitHub Releases tagged `CommaRh-v*` on [Comma3D/Comma](https://github.com/Comma3D/Comma/releases)).
 
 After install, run `commaMenu`. That opens the type menu (Doc / Curve / Surface / Brep / Mesh / Drafting / CAD / IFC) plus **License Manager**.
 

@@ -1,9 +1,11 @@
 ---
 title: Report a problem
-weight: 4
+weight: 5
 ---
 
 Problems are tracked on [Comma docs Issues](https://github.com/Comma3D/comma-docs/issues). Use the `rhino` label for CommaRh.
+
+Issues are for **new** reports. Past Package Manager updates live on the [Changelog](changelog/), not as backfilled issues.
 
 Include:
 

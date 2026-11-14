@@ -10,4 +10,4 @@ CommaRh is a Rhino 8 toolkit for inspection, modeling, drafting, and CAD/IFC exc
 
 Panel actions stay inside their panels. This guide lists the public commands only.
 
-Install from the Rhino Package Manager. To report a problem, open [Issues](https://github.com/Comma3D/comma-docs/issues) and add the `rhino` label.
+Install from the Rhino Package Manager. See the [Changelog](getting-started/changelog/) for Package Manager update history. To report a problem, open [Issues](https://github.com/Comma3D/comma-docs/issues) and add the `rhino` label.

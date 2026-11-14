@@ -16,6 +16,6 @@ Run `commaMenu` to open the compact type menu.
 | CAD | DWG import and export |
 | IFC | IFC import, export, template, shared parameters, and IfcOpenShell |
 
-`commaMenu` also includes **License Manager** (`commaRegister`), **About**, and the built-in user manual.
+`commaMenu` also includes **License Manager** (`commaRegister`), **About**, and **User Manual** (opens the online docs).
 
 Commands that are not on the menu are still public. Type the command name. Each of those pages says so.

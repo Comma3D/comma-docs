@@ -19,6 +19,7 @@ layout: hextra-home
 
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card title="Getting started" subtitle="Package Manager install, the type menu, and the licence on this computer." link="docs/getting-started/" >}}
+  {{< hextra/feature-card title="Changelog" subtitle="Package Manager update history for CommaRh releases." link="docs/getting-started/changelog/" >}}
   {{< hextra/feature-card title="Doc" subtitle="Layers, objects, attributes, sort, tolerance, and quick tools." link="docs/doc/" >}}
   {{< hextra/feature-card title="Curve and surface" subtitle="Scale, flip, rebuild polylines, and fit circles or arcs." link="docs/curve/" >}}
   {{< hextra/feature-card title="Brep" subtitle="Scale, loft, smooth, combine, and extract faces." link="docs/brep/" >}}

@@ -113,7 +113,7 @@ layout: hextra-home
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
   Modeling, drafting, and CAD/IFC exchange for Rhino 8.&nbsp;<br class="hx:sm:block hx:hidden" />
-  Install from the Package Manager.
+  Install from the Package Manager (``CommaRh``).
 {{< /hextra/hero-subtitle >}}
 </div>
 
@@ -124,6 +124,7 @@ layout: hextra-home
 
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card title="Getting started" subtitle="Package Manager install, the type menu, and the licence on this computer." link="docs/getting-started/" >}}
+  {{< hextra/feature-card title="Changelog" subtitle="Package Manager update history for CommaRh releases." link="docs/getting-started/changelog/" >}}
   {{< hextra/feature-card title="Doc" subtitle="Layers, objects, attributes, sort, tolerance, and quick tools." link="docs/doc/" >}}
   {{< hextra/feature-card title="Curve and surface" subtitle="Scale, flip, rebuild polylines, and fit circles or arcs." link="docs/curve/" >}}
   {{< hextra/feature-card title="Brep" subtitle="Scale, loft, smooth, combine, and extract faces." link="docs/brep/" >}}
@@ -148,7 +149,7 @@ CommaRh is a Rhino 8 toolkit for inspection, modeling, drafting, and CAD/IFC exc
 
 Panel actions stay inside their panels. This guide lists the public commands only.
 
-Install from the Rhino Package Manager. To report a problem, open [Issues](https://github.com/Comma3D/comma-docs/issues) and add the ``rhino`` label.
+Install from the Rhino Package Manager. See the [Changelog](getting-started/changelog/) for Package Manager update history. To report a problem, open [Issues](https://github.com/Comma3D/comma-docs/issues) and add the ``rhino`` label.
 "@
 
 W "rhino/docs/getting-started/_index.md" @"
@@ -157,7 +158,7 @@ title: Getting started
 weight: 1
 ---
 
-Install CommaRh, open the menu, and check the licence on this computer.
+Install CommaRh, open the menu, check the licence, and read the [Changelog](changelog/) for Package Manager updates.
 "@
 
 W "rhino/docs/getting-started/installing.md" @"
@@ -170,7 +171,8 @@ Every public command documented under Rhino ships together in one Package Manage
 
 - To install: open Rhino 8 on Windows, run ``PackageManager``, search for ``CommaRh``, and click **Install**.
 - Supported versions: Rhino 8 (Windows).
-- Current guide version: 26.1.8. Package Manager shows the version that is installed on this computer.
+- Current guide version: 26.1.9. Package Manager shows the version that is installed on this computer.
+- Update history: [Changelog](changelog/) (and GitHub Releases tagged ``CommaRh-v*`` on [Comma3D/Comma](https://github.com/Comma3D/Comma/releases)).
 
 After install, run ``commaMenu``. That opens the type menu (Doc / Curve / Surface / Brep / Mesh / Drafting / CAD / IFC) plus **License Manager**.
 
@@ -202,7 +204,7 @@ Run ``commaMenu`` to open the compact type menu.
 | CAD | DWG import and export |
 | IFC | IFC import, export, template, shared parameters, and IfcOpenShell |
 
-``commaMenu`` also includes **License Manager** (``commaRegister``), **About**, and the built-in user manual.
+``commaMenu`` also includes **License Manager** (``commaRegister``), **About**, and **User Manual** (opens the online docs).
 
 Commands that are not on the menu are still public. Type the command name. Each of those pages says so.
 "@
@@ -231,10 +233,12 @@ Do not paste a licence key into a GitHub issue. Prefer the ``rhino`` label on [I
 W "rhino/docs/getting-started/report-a-problem.md" @"
 ---
 title: Report a problem
-weight: 4
+weight: 5
 ---
 
 Problems are tracked on [Comma docs Issues](https://github.com/Comma3D/comma-docs/issues). Use the ``rhino`` label for CommaRh.
+
+Issues are for **new** reports. Past Package Manager updates live on the [Changelog](changelog/), not as backfilled issues.
 
 Include:
 
@@ -251,7 +255,7 @@ This repository is also the place other Comma products publish their guides. Pus
 W "rhino/docs/getting-started/contribute.md" @"
 ---
 title: Contribute to the guide
-weight: 5
+weight: 6
 ---
 
 The guide source lives in the public repository [Comma3D/comma-docs](https://github.com/Comma3D/comma-docs). Plugin source stays private.
@@ -382,5 +386,24 @@ $gen = Join-Path $PSScriptRoot "_gen_commands.py"
 if (-not (Test-Path $gen)) { throw "_gen_commands.py missing." }
 python $gen
 if ($LASTEXITCODE -ne 0) { throw "_gen_commands.py failed." }
+
+# CommaRh Package Manager history (from repo CHANGELOG — not GitHub Issues)
+$changelogSrc = Join-Path $PSScriptRoot "..\CommaRh\CHANGELOG.md"
+if (-not (Test-Path $changelogSrc)) { throw "CommaRh CHANGELOG.md missing at $changelogSrc" }
+$clBody = [System.IO.File]::ReadAllText($changelogSrc).Trim()
+$clBody = [regex]::Replace($clBody, "^#\s+Changelog\s*", "", "IgnoreCase")
+$changelogPage = @"
+---
+title: Changelog
+weight: 4
+---
+
+Package Manager update history for **CommaRh**. Source of truth: ``src/CommaRh/CHANGELOG.md``. GitHub Releases use tags ``CommaRh-v*`` on [Comma3D/Comma](https://github.com/Comma3D/Comma/releases?q=CommaRh).
+
+Report new problems on [Issues](https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arhino) — do not open issues for past release notes.
+
+$clBody
+"@
+W "rhino/docs/getting-started/changelog.md" $changelogPage
 
 Write-Host "content built"
