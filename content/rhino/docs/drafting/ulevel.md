@@ -9,17 +9,21 @@ aliases:
 | --- | --- |
 | `commaMenu` → **Drafting** | `uLevel` |
 
-Reports a point level along X, Y, or Z relative to World or CPlane.
+Reads the level (height) of a picked point along an axis, measured from the world origin or the construction plane. Use it to check elevations quickly.
 
 #### Steps
 
-1. Pick point`.
-
+1. Run `uLevel`.
+2. Optional: set `BakeResult`, `UnitDisplay`, `Reference` (CPlane or World) and click the axis option to cycle between `AxisX`, `AxisY` and `AxisZ` (default Z).
+3. At `Pick point` click the point to measure.
+4. The level is the distance from the reference plane origin along the chosen axis. It is printed and copied to the clipboard.
+5. With `BakeResult` Yes a line to the projected point and a text dot are added on the layer `CheckLevel`.
 
 #### Options
 
-| Option | What it does |
-| --- | --- |
-| BakeResult / UnitDisplay | Bake and units. |
-| Reference | CPlane or World. |
-| AxisX / AxisY / AxisZ | Cycle which axis is reported. |
+| Option | Values | What it does |
+| --- | --- | --- |
+| BakeResult | No, Yes (default No) | Adds a line and a text dot to the model. |
+| UnitDisplay | Document, Meters (default Document) | Unit of the result. |
+| Reference | CPlane, World (default World) | Origin and axes used for the level. |
+| Axis | AxisX, AxisY, AxisZ (default Z) | Axis along which the level is measured. Click to cycle. |
