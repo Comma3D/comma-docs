@@ -50,13 +50,14 @@ params:
   description: User guides for Comma tools on Rhino, Tekla Structures, and Revit.
 
   navbar:
-    displayTitle: true
+    displayTitle: false
     displayLogo: true
     logo:
-      path: images/logo.svg
-      dark: images/logo-dark.svg
-      width: 28
-      height: 28
+      path: images/comma-logo.png
+      dark: images/comma-logo-dark.png
+      width: 140
+      height: 36
+      link: /
     width: wide
 
   theme:

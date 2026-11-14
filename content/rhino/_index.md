@@ -3,16 +3,7 @@ title: CommaRh
 layout: hextra-home
 ---
 
-{{< hextra/hero-badge >}}
-  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
-  <span>Rhino 8</span>
-{{< /hextra/hero-badge >}}
-
-<div class="hx:mt-6 hx:mb-6">
-{{< hextra/hero-headline >}}
-  CommaRh
-{{< /hextra/hero-headline >}}
-</div>
+{{< brand-logo name="rhino" height="4rem" >}}
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}

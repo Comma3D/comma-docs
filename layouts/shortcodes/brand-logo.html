@@ -1,0 +1,9 @@
+{{- $name := .Get "name" | default "comma" -}}
+{{- $height := .Get "height" | default "3.5rem" -}}
+{{- $light := cond (eq $name "rhino") "images/comma-rh-logo.png" "images/comma-logo.png" -}}
+{{- $dark := cond (eq $name "rhino") "images/comma-rh-logo-dark.png" "images/comma-logo-dark.png" -}}
+{{- $alt := cond (eq $name "rhino") "CommaRh" "Comma" -}}
+<div class="hx:mt-2 hx:mb-6">
+  <img class="hx:block hx:dark:hidden hx:w-auto" style="height: {{ $height }}" src="{{ $light | relURL }}" alt="{{ $alt }}" />
+  <img class="hx:hidden hx:dark:block hx:w-auto" style="height: {{ $height }}" src="{{ $dark | relURL }}" alt="{{ $alt }}" />
+</div>

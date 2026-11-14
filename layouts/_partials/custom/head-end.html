@@ -1,11 +1,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Roboto:wght@400;500;700&display=swap">
+<link rel="icon" href="{{ "images/comma-logo.png" | relURL }}" type="image/png">
 <style>
   :root {
     --hx-font-family: "Lato", "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   body {
     font-family: var(--hx-font-family);
+  }
+  /* Keep lockup logos sharp in the navbar. */
+  .hextra-nav-container img {
+    width: auto;
+    max-height: 2rem;
+    object-fit: contain;
   }
 </style>

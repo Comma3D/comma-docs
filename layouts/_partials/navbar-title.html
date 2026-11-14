@@ -1,0 +1,15 @@
+{{- /*
+  Suite logo on most pages; CommaRh lockup under /rhino/.
+*/ -}}
+{{- $inRhino := or (eq .Section "rhino") (hasPrefix .RelPermalink (relURL "rhino/")) -}}
+{{- $logoPath := cond $inRhino "images/comma-rh-logo.png" "images/comma-logo.png" -}}
+{{- $logoDarkPath := cond $inRhino "images/comma-rh-logo-dark.png" "images/comma-logo-dark.png" -}}
+{{- $logoLink := cond $inRhino (relURL "rhino/") .Site.Home.RelPermalink -}}
+{{- $logoWidth := cond $inRhino "120" "140" -}}
+{{- $logoHeight := cond $inRhino "40" "36" -}}
+{{- $alt := cond $inRhino "CommaRh" "Comma" -}}
+
+<a class="hx:flex hx:items-center hx:hover:opacity-75 hx:ltr:mr-auto hx:rtl:ml-auto" href="{{ $logoLink }}">
+  <img class="hx:mr-2 hx:block hx:dark:hidden" src="{{ $logoPath | relURL }}" alt="{{ $alt }}" height="{{ $logoHeight }}" width="{{ $logoWidth }}" />
+  <img class="hx:mr-2 hx:hidden hx:dark:block" src="{{ $logoDarkPath | relURL }}" alt="{{ $alt }}" height="{{ $logoHeight }}" width="{{ $logoWidth }}" />
+</a>
