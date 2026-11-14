@@ -1,0 +1,92 @@
+baseURL: https://comma3d.github.io/comma-docs/
+title: Comma
+locale: en
+
+enableRobotsTXT: true
+enableGitInfo: false
+
+theme: hextra
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+menu:
+  main:
+    - identifier: rhino
+      name: Rhino
+      pageRef: /rhino
+      weight: 1
+    - identifier: tekla
+      name: Tekla
+      pageRef: /tekla
+      weight: 2
+    - identifier: revit
+      name: Revit
+      pageRef: /revit
+      weight: 3
+    - identifier: docs
+      name: Docs
+      pageRef: /rhino/docs
+      weight: 4
+    - identifier: issues
+      name: Issues
+      url: https://github.com/Comma3D/comma-docs/issues
+      weight: 5
+    - identifier: search
+      name: Search
+      weight: 6
+      params:
+        type: search
+    - identifier: github
+      name: GitHub
+      url: https://github.com/Comma3D/comma-docs
+      weight: 7
+      params:
+        icon: github
+
+params:
+  description: User guides for Comma tools on Rhino, Tekla Structures, and Revit.
+
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/logo.svg
+      dark: images/logo-dark.svg
+      width: 28
+      height: 28
+    width: wide
+
+  theme:
+    default: system
+    displayToggle: true
+
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: false
+    width: normal
+
+  displayUpdatedDate: false
+
+  search:
+    enable: true
+    type: flexsearch
+
+  flexsearch:
+    index: content
+    tokenize: forward
+
+  editURL:
+    enable: true
+    base: https://github.com/Comma3D/comma-docs/edit/main/content/
+
+  page:
+    width: normal
+
+  toc:
+    displayTags: false
+
+copyright: Comma
