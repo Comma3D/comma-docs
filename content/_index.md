@@ -14,6 +14,7 @@ layout: hextra-home
 
 <div class="hx:mb-6 hx:flex hx:flex-wrap hx:gap-3">
 {{< hextra/hero-button text="Rhino guide" link="rhino" >}}
+{{< hextra/hero-button text="About" link="about" >}}
 {{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues" >}}
 </div>
 

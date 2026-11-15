@@ -34,3 +34,15 @@ cd src/CommaDocs
 .\publish.ps1          # regenerate content + local Hugo build
 .\publish.ps1 -Deploy  # push source to this repository
 ```
+
+### After a CommaRh Yak ship
+
+1. Add short user bullets to `_changelog-user.md` (not the developer `CommaRh/CHANGELOG.md`).
+2. Run (personal GitHub account with Write on this repo):
+
+```powershell
+.\release-docs.ps1     # deploy Pages + create/skip CommaRh-v* releases
+```
+
+Releases: https://github.com/Comma3D/comma-docs/releases  
+Do not publish CommaRh release notes on private `Comma3D/Comma`.

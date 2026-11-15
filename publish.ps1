@@ -130,7 +130,7 @@ try {
     $copy = @(
         "content", "layouts", "static", "assets", "hugo.yaml", ".gitignore",
         "README.md", ".github", "_build-content.ps1", "_gen_commands.py", "_changelog-user.md",
-        "_publish-commarh-releases.ps1", "publish.ps1"
+        "_publish-commarh-releases.ps1", "release-docs.ps1", "publish.ps1"
     )
     foreach ($name in $copy) {
         $from = Join-Path $SiteRoot $name

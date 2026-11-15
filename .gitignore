@@ -5,3 +5,5 @@ themes/
 .tools/
 _commands.partial*.json
 _commands.partial1.json
+_commands.json
+

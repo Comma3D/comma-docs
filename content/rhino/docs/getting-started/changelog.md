@@ -11,8 +11,10 @@ Short notes for Package Manager users.
 
 ## [26.1.9] - 2026-11-14
 
+- Attribute Manager and Visibility panels: faster Sync, Id-based CSV/JSON, group colors.
+- DWG send: hatches stay in place (no Y-mirror); Import Unit default is From DWG.
+- Merge layers by level moves objects up the tree; Face from direction has X/Y/Z/Pick preview + Flip.
 - Help and About open the online docs website.
-- Update history is on the docs site.
 
 ## [26.1.8] - 2026-11-11
 
