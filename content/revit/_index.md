@@ -20,7 +20,26 @@ layout: hextra-home
 {{< /hextra/hero-subtitle >}}
 </div>
 
+## General
+
+- [Info]({{< relref "docs/info.md" >}})
+- [License]({{< relref "docs/license.md" >}})
+
+## Parameter
+
+- [Selection]({{< relref "docs/selection.md" >}})
+- [Check Param]({{< relref "docs/check-param.md" >}})
+- [Check Solid]({{< relref "docs/check-solid.md" >}})
+
+## Export
+
+- [Batch Export]({{< relref "docs/batch-export.md" >}})
+- [Print PDF]({{< relref "docs/print-pdf.md" >}})
+- [Import DWG to View]({{< relref "docs/import-dwg-to-view.md" >}})
+- [Link IFC]({{< relref "docs/link-ifc.md" >}})
+- [Family Manager]({{< relref "docs/family-manager.md" >}})
+- [Transfer Rhino 2D / 3D]({{< relref "docs/transfer-rhino.md" >}})
+
 <div class="hx:mb-6">
-{{< hextra/hero-button text="Documentation" link="docs" >}}
 {{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arevit" >}}
 </div>
