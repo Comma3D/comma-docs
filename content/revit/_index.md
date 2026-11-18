@@ -3,20 +3,11 @@ title: CommaRvt
 layout: hextra-home
 ---
 
-{{< hextra/hero-badge >}}
-  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
-  <span>Revit</span>
-{{< /hextra/hero-badge >}}
-
-<div class="hx:mt-6 hx:mb-6">
-{{< hextra/hero-headline >}}
-  CommaRvt
-{{< /hextra/hero-headline >}}
-</div>
+{{< brand-logo name="comma" height="4rem" >}}
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Check model parameters and geometry, publish drawings, and coordinate Revit with DWG, IFC, and Rhino.
+  CommaRvt checks model parameters and geometry, publishes drawings, and coordinates Revit with DWG, IFC, and Rhino.
 {{< /hextra/hero-subtitle >}}
 </div>
 
