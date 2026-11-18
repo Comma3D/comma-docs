@@ -1,7 +1,12 @@
 ﻿# Regenerates content/ from the catalog research. Re-run after editing the data below.
 $ErrorActionPreference = "Stop"
 $root = Join-Path $PSScriptRoot "content"
-if (Test-Path $root) { Remove-Item $root -Recurse -Force }
+# Revit guides are maintained directly under content/revit.
+if (Test-Path $root) {
+    Get-ChildItem -LiteralPath $root -Force |
+        Where-Object { -not ($_.PSIsContainer -and $_.Name -eq "revit") } |
+        Remove-Item -Recurse -Force
+}
 New-Item -ItemType Directory -Force -Path $root | Out-Null
 $utf8 = New-Object System.Text.UTF8Encoding $false
 $arrow = [char]0x2192
@@ -98,7 +103,7 @@ layout: hextra-home
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card title="CommaRh" subtitle="Rhino 8 modeling, drafting, and CAD/IFC exchange. Install from the Package Manager." link="rhino/" >}}
   {{< hextra/feature-card title="CommaTs" subtitle="Tekla Structures model and drawing plugins. Guide pages land here as the team publishes them." link="tekla/" >}}
-  {{< hextra/feature-card title="CommaRvt" subtitle="Revit tools — placeholder until the product ships." link="revit/" >}}
+  {{< hextra/feature-card title="CommaRvt" subtitle="Model checks, drawing exports, and coordination tools for Revit." link="revit/" >}}
 {{< /hextra/feature-grid >}}
 "@
 
@@ -366,45 +371,6 @@ cascade:
 Tekla guide content is not in this repository yet. Collaborators can add markdown under ``content/tekla/docs/`` on ``main``; GitHub Actions will publish it.
 
 Until then, the existing public Tekla guide remains at [trungvuduy.github.io/comma-ts-releases](https://trungvuduy.github.io/comma-ts-releases/). Use the ``tekla`` label on [Issues](https://github.com/Comma3D/comma-docs/issues).
-"@
-
-W "revit/_index.md" @"
----
-title: CommaRvt
-layout: hextra-home
----
-
-{{< hextra/hero-badge >}}
-  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
-  <span>Revit</span>
-{{< /hextra/hero-badge >}}
-
-<div class="hx:mt-6 hx:mb-6">
-{{< hextra/hero-headline >}}
-  CommaRvt
-{{< /hextra/hero-headline >}}
-</div>
-
-<div class="hx:mb-12">
-{{< hextra/hero-subtitle >}}
-  Revit tools — placeholder until the product ships.
-{{< /hextra/hero-subtitle >}}
-</div>
-
-<div class="hx:mb-6">
-{{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arevit" >}}
-</div>
-"@
-
-W "revit/docs/_index.md" @"
----
-title: CommaRvt docs
-linkTitle: Documentation
-cascade:
-  type: docs
----
-
-CommaRvt is not released yet. This section is a placeholder so the suite navbar stays stable. Use the ``revit`` label on [Issues](https://github.com/Comma3D/comma-docs/issues) when that product starts.
 "@
 
 # Detailed command pages (Steps + Options from code research)

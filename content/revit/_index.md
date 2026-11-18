@@ -16,10 +16,11 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Revit tools — placeholder until the product ships.
+  Check model parameters and geometry, publish drawings, and coordinate Revit with DWG, IFC, and Rhino.
 {{< /hextra/hero-subtitle >}}
 </div>
 
 <div class="hx:mb-6">
+{{< hextra/hero-button text="Documentation" link="docs" >}}
 {{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arevit" >}}
 </div>
