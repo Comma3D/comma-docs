@@ -26,23 +26,19 @@ menu:
       name: Revit
       pageRef: /revit
       weight: 3
-    - identifier: about
-      name: About
-      pageRef: /about
-      weight: 4
     - identifier: issues
       name: Issues
       url: https://github.com/Comma3D/comma-docs/issues
-      weight: 5
+      weight: 4
     - identifier: search
       name: Search
-      weight: 6
+      weight: 5
       params:
         type: search
     - identifier: github
       name: GitHub
       url: https://github.com/Comma3D/comma-docs
-      weight: 7
+      weight: 6
       params:
         icon: github
 

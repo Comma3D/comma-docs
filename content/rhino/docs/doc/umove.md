@@ -9,12 +9,12 @@ aliases:
 | --- | --- |
 | `commaMenu` → **Doc** | `uMove` |
 
-Opens the U Move form to shift objects between local model coordinates and real-world (survey) coordinates using a saved offset and rotation. Real applies the offset, Local reverses it. Named offsets can be saved per project and reused.
+Opens the Comma Move form to shift objects between local model coordinates and real-world (survey) coordinates using a saved offset and rotation. Real applies the offset, Local reverses it. Named offsets can be saved per project and reused.
 
 #### Steps
 
 1. Select the objects to transform. If nothing is selected when you click `Real` or `Local`, the command asks `Select objects to transform`.
-2. Run `uMove`. The U Move form opens and stays open while you work.
+2. Run `uMove`. The Comma Move form opens and stays open while you work.
 3. Type a project name in the project combo box, or pick a saved one to load its values.
 4. Enter `X` and `Y` (required) and optionally `Z` and `R`. `Z` and `R` default to 0. `R` is a rotation in degrees.
 5. Click `Save` to store the current values under the project name, or `Delete` to remove the selected saved project.

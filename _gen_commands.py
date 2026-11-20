@@ -172,12 +172,12 @@ COMMANDS = [{'title': 'uLayer',
   'section': 'doc',
   'group': 'Doc',
   'onMenu': True,
-  'summary': 'Opens the U Move form to shift objects between local model coordinates and real-world (survey) '
+  'summary': 'Opens the Comma Move form to shift objects between local model coordinates and real-world (survey) '
              'coordinates using a saved offset and rotation. Real applies the offset, Local reverses it. '
              'Named offsets can be saved per project and reused.',
   'steps': ['Select the objects to transform. If nothing is selected when you click `Real` or `Local`, the '
             'command asks `Select objects to transform`.',
-            'Run `uMove`. The U Move form opens and stays open while you work.',
+            'Run `uMove`. The Comma Move form opens and stays open while you work.',
             'Type a project name in the project combo box, or pick a saved one to load its values.',
             'Enter `X` and `Y` (required) and optionally `Z` and `R`. `Z` and `R` default to 0. `R` is a '
             'rotation in degrees.',
@@ -1382,7 +1382,7 @@ COMMANDS = [{'title': 'uLayer',
              'list of the files that will be created.',
   'steps': ['Run `uDwgExport`. At `Select objects to batch export` pick any objects (preselected objects are '
             'accepted).',
-            'The modal dialog `uDwgExport - Batch export (DWG/3DM/DXF)` opens. Choose the `Export folder` '
+            'The modal dialog `Comma DWG Export` opens. Choose the `Export folder` '
             '(default Desktop).',
             'Choose the `Format` (.dwg, .3dm or .dxf) and the `File name prefix` (default Export).',
             'Choose the `Export mode`: `Layer` (default, one file per layer group) or `Object` (one file per '
@@ -1762,6 +1762,289 @@ COMMANDS = [{'title': 'uLayer',
            'columns Object and Vis.',
   'extra': ''}]
 
+
+
+# 26.2.0 page text for uAttribute, uIfcImport, uIfcExport, uVisibilityAdd.
+_PAGES_26_2 = {'uattribute': {'summary': 'Opens the Comma Attribute Manager, a modeless table of object Layer, Name, Color '
+                           'and user-text keys. You edit values in bulk, fill them from a project picklist, '
+                           'group and color objects by a key, and exchange the table with the IFC editor '
+                           '(Model.html) as JSON matched by Id.',
+                'steps': ['Run `uAttribute`. The Comma Attribute Manager opens.',
+                          'Choose the scope (`Selected`, `Visible` or `All`) and, with `Object ▾`, which '
+                          'object kinds are read. Click `Sync`.',
+                          'Click `Columns` to choose which user-text keys are shown.',
+                          'Optional: click `Picklist` and load a picklist (Comma template `.xlsx`, '
+                          'Classification Manager workbook or `.json`). Pick a filter (for example LOD or '
+                          'phase) in the dropdown next to it.',
+                          'Edit cells. Nothing is written until you click `Set`.',
+                          'Double-click an **Id** cell to open the **Properties** panel for that object (see '
+                          'below). Double-click any other cell to zoom to the object.',
+                          'Click `Set` to write the edits to the objects.'],
+                'options': [],
+                'notes': '',
+                'extra': '#### Picklist\n'
+                         '\n'
+                         'A picklist lists the classes of a project (for example wall, beam, track) with '
+                         'their parameters and allowed values. When a picklist is loaded:\n'
+                         '\n'
+                         '- The class of an object is found from its **layer name**. The first four layer '
+                         'segments (Project, Site, Building, Storey) are skipped when the path is longer '
+                         'than four segments.\n'
+                         '- The other layer segments fill dropdown values when they match a value of the '
+                         'list exactly.\n'
+                         '- `IfcType` is filled from the class.\n'
+                         '- Fixed values of the class are written as they are.\n'
+                         '\n'
+                         'Values are matched as written in the picklist. Nothing is translated. Use the '
+                         'search in the picklist or in Model.html to find a value in another language.\n'
+                         '\n'
+                         '#### Properties panel (double-click Id)\n'
+                         '\n'
+                         '| Part | What it does |\n'
+                         '| --- | --- |\n'
+                         '| Class | Dropdown of the picklist classes. Type to search. |\n'
+                         '| Parameters | The parameters of the class, with dropdowns for listed values. |\n'
+                         '| Apply | Writes the panel values to the object(s) of the panel only. |\n'
+                         '\n'
+                         'When you pick another class, a prompt asks what to do with the layer:\n'
+                         '\n'
+                         '| Choice | Result |\n'
+                         '| --- | --- |\n'
+                         "| Rename layer | Renames the object's layer to the class name. Every object on "
+                         'that layer follows. If a layer with that name exists next to it, the objects are '
+                         'merged into it. |\n'
+                         '| New layer | Moves only the selected object(s) to a layer of the class name next '
+                         'to their own layer. |\n'
+                         '| Cancel | Nothing changes. |\n'
+                         '\n'
+                         '#### Toolbar\n'
+                         '\n'
+                         '| Option | What it does |\n'
+                         '| --- | --- |\n'
+                         '| Scope | Selected, Visible, All (default Visible). |\n'
+                         '| Sync / Set | Read the objects into the table / write the edits back. |\n'
+                         '| Columns | Choose, order and save presets of the shown keys. |\n'
+                         '| Group by, Group, Clear Color | Color model and rows by a key value, collapse '
+                         'rows, restore colors. |\n'
+                         '| Picklist, filter, ? | Load or save a picklist, filter its parameters, open the '
+                         'picklist guide. |\n'
+                         '| Object ▾ | Object kinds read by Sync. |\n'
+                         '| ⋯ | Cal Volume, Cal Area, units (m or mm), Import…, Export…. |\n'
+                         '| Select all, None, Show, Hide, Isolate, Restore | Act on the objects of the rows '
+                         'shown. |\n'
+                         '| Search | `ST*`, `Trade=STR`, `Layer=Walls::*`, `-Slab`, `STR|ARC`. |\n'
+                         '\n'
+                         '#### Import and export\n'
+                         '\n'
+                         '- `Export…` writes CSV or JSON keyed by Id.\n'
+                         '- `Import…` reads CSV or JSON and updates objects matched by Id. Compressed IFC '
+                         'GlobalIds (22 characters) are accepted too.\n'
+                         '- A JSON file downloaded from Model.html (`Attributes`) applies the class change: '
+                         'the `Rhino.Layer` value moves the object to that layer under the same '
+                         'Project::Site::Building::Storey. A key removed in Model.html is cleared on the '
+                         'object.\n'
+                         '\n'
+                         'The table reflects the model at the last Sync. Run Sync again after changing the '
+                         'model in Rhino.'},
+ 'uifcimport': {'summary': 'Imports one or many IFC files into Rhino as meshes or Breps, with layers built '
+                           'from the IFC spatial structure. You choose the engine, what to import, how '
+                           'layers and metadata are written, and an optional coordinate offset.',
+                'steps': ['Run `uIfcImport`. The modal dialog `uIfcImport - Import IFC` opens.',
+                          'Enter the path in the box (`File path(s) or folder...`): one file, several files '
+                          'separated by `;`, or a folder. Or use the file and folder buttons to browse.',
+                          'Choose the `Engine`: `Rhino Built-in`, `IfcOpenShell (Hierarchy)` (default) or '
+                          '`xBIM (Direct Memory)`.',
+                          'Tick what to import and how to handle the file, then set `Sharp edge angle` and '
+                          'the `Offset (m)` X, Y and Z.',
+                          'Click `Import`. Layers are `<file name>::Site::Building::Storey::<object name>`. '
+                          'Objects with the same name share a layer (a trailing `:<id>` is dropped). A file '
+                          'exported by Comma keeps its own layers (`Rhino.Layer`). With `Organize layers by '
+                          'IFC type` the IFC type sits above the name. Sublayers you add under the name '
+                          'export unchanged; do not add layers above the storey.',
+                          'The command line reports `Files: ok/total`.'],
+                'options': [{'name': 'Engine',
+                             'values': 'Rhino Built-in, IfcOpenShell (Hierarchy), xBIM (Direct Memory) '
+                                       '(default IfcOpenShell)',
+                             'does': 'Import engine.'},
+                            {'name': 'Import Abstract/Spatial Elements (IfcSpace, IfcOpening...)',
+                             'values': 'On, off (default off)',
+                             'does': 'Also imports spaces and openings.'},
+                            {'name': 'When selecting a folder: include IFC files in all subfolders',
+                             'values': 'On, off (default off)',
+                             'does': 'Searches subfolders when a folder is chosen.'},
+                            {'name': 'If layer root exists',
+                             'values': 'Replace existing (delete old objects), Skip file',
+                             'does': 'What to do when the file layer root is already in the document.'},
+                            {'name': 'Export detailed error/skip report to Desktop (.log)',
+                             'values': 'On, off (default off)',
+                             'does': 'Writes a log file.'},
+                            {'name': 'IfcOpenShell: use native Brep when available (extrusions)',
+                             'values': 'On, off (default off)',
+                             'does': 'Creates Breps for extrusions instead of meshes. Only for '
+                                     'IfcOpenShell.'},
+                            {'name': 'Organize layers by IFC type',
+                             'values': 'On, off (default off)',
+                             'does': 'Off: Site, Building, Storey, object name. On: Site, Building, Storey, '
+                                     'IFC type, object name. IfcType is stored on the object either way.'},
+                            {'name': 'Write IFC metadata to Document User Text',
+                             'values': 'On, off (default off)',
+                             'does': 'Stores project data in Document User Text. With several files the keys '
+                                     'are overwritten and the last file wins.'},
+                            {'name': 'Write object UserText keys with [Type]',
+                             'values': 'On, off (default off)',
+                             'does': 'On writes keys like Pset.Name[Volume] = value so they can be '
+                                     're-exported.'},
+                            {'name': 'Sharp edge angle',
+                             'values': '0 to 180 degrees, default 80',
+                             'does': '0 makes every edge sharp, 180 makes all smooth.'},
+                            {'name': 'Offset (m) X / Y / Z',
+                             'values': 'Numbers, default 0',
+                             'does': 'Subtracted from real-world coordinates so the model sits near the '
+                                     'origin.'}],
+                'notes': '',
+                'extra': '#### What is kept on each object\n'
+                         '\n'
+                         '| Data | User text |\n'
+                         '| --- | --- |\n'
+                         '| Property sets and quantity sets (`Qto_*`) | `Pset.Name` keys. Lengths, areas, '
+                         'volumes, angles and masses are converted to SI (m, m², m³, rad, kg). |\n'
+                         '| Entity attributes | `IfcType`, `IfcPredefinedType`, `IfcObjectType`, '
+                         '`IfcDescription`, `GlobalId` |\n'
+                         '| Type object | `IfcTypeClass`, `IfcTypeName` |\n'
+                         '| Presentation layer | `IfcPresentationLayer` |\n'
+                         '| Nested buildings | Building names joined with ` › ` (for example `Val › Oost`) '
+                         '|\n'
+                         '\n'
+                         'Files from Revit, Tekla and Allplan keep this data when you export them again with '
+                         '[`uIfcExport`](../uifcexport/). Check the layer tree after import. It is the same '
+                         'structure that uIfcExport reads back.'},
+ 'uifcexport': {'summary': 'Exports the selected objects to an IFC file. The IFC type comes from object user '
+                           'text or the layer path, and the spatial structure (project, site, building, '
+                           'storey) comes from the layer path and the Document User Text.',
+                'steps': ['Run `uIfcSetupTemplateFile` once to prepare layers and document keys, and run '
+                          '`uIfcApplySharedParams` if you want property sets.',
+                          'Run `uIfcExport`. At `Select objects to export to IFC` pick the objects '
+                          '(preselected objects are accepted).',
+                          'The modal dialog `uIfcExport - Export IFC` opens. Choose the `Save to` file with '
+                          'Browse.',
+                          'Choose the `Engine`: `Python (ifcopenshell)` (default) or `Xbim C# native`, and '
+                          'the `Schema`: `IFC2x3`, `IFC4` (default) or `IFC4.3`.',
+                          'Choose the `Meshing`: `Render Mesh (recommended)` or `Detail Mesh (slower)`. For '
+                          'Detail Mesh also set `Max angle (deg)` and `Max edge-to-surface`.',
+                          'Tick the checkboxes you need (IFC4X3 Bridge mode, Optimize IFC4 mesh, Export '
+                          'detailed report, Also save Model.html).',
+                          'Check the shared-origin label, then click `Export`.',
+                          'The command line prints the exported, failed and skipped counts.'],
+                'options': [{'name': 'Save to',
+                             'values': 'IFC file path',
+                             'does': 'Output file. Without a path the dialog shows `Please select a save '
+                                     'location.`'},
+                            {'name': 'Engine',
+                             'values': 'Python (ifcopenshell), Xbim C# native (default Python)',
+                             'does': 'Export engine.'},
+                            {'name': 'Schema',
+                             'values': 'IFC2x3, IFC4, IFC4.3 (default IFC4)',
+                             'does': 'IFC schema. The default can come from the Document User Text key '
+                                     'IFC.Schema.'},
+                            {'name': 'Meshing',
+                             'values': 'Render Mesh (recommended), Detail Mesh (slower)',
+                             'does': 'Mesh quality used to write geometry.'},
+                            {'name': 'Max angle (deg)',
+                             'values': '5 to 35, default 20',
+                             'does': 'Detail Mesh only: maximum angle between faces.'},
+                            {'name': 'Max edge-to-surface',
+                             'values': 'Number, default 1.0 document units',
+                             'does': 'Detail Mesh only: maximum distance between mesh edges and the '
+                                     'surface.'},
+                            {'name': 'IFC4X3 Bridge mode',
+                             'values': 'On, off',
+                             'does': 'Only visible with IFC4.3. Also driven by IFC.UseBridge.'},
+                            {'name': 'Optimize IFC4 mesh (IfcTriangulatedFaceSet)',
+                             'values': 'On, off (default on)',
+                             'does': 'Writes compact triangulated face sets. Ignored for IFC2x3.'},
+                            {'name': 'Export detailed report to Desktop (.log)',
+                             'values': 'On, off',
+                             'does': 'Writes a log file.'},
+                            {'name': 'Also save Model.html (viewer + attribute editor, model inside)',
+                             'values': 'On, off',
+                             'does': 'Writes an offline viewer and editor next to the IFC file.'},
+                            {'name': 'Structure line',
+                             'values': 'Information',
+                             'does': 'The tree the layers give: sites, buildings, storeys, an example path, and '
+                                     'how many objects go to Default. Check it before Export when layers are '
+                                     'not set up with uIfcSetupTemplateFile.'},
+                            {'name': 'Shared origin label',
+                             'values': 'Information',
+                             'does': 'Shows the shared origin from IFC.Offset X, Y and Z, or a warning to '
+                                     'run uIfcSetupTemplateFile.'}],
+                'notes': '',
+                'extra': 'IFC type is read from the object user text `IfcType` (or `IFC.Type`), then from a '
+                         'type token in the layer path, otherwise IfcBuildingElementProxy is used. Every '
+                         'IFC4 element class is written as itself (beams, railings, piles, fasteners).\n'
+                         '\n'
+                         '#### Layers\n'
+                         '\n'
+                         '| Layer path | Spatial structure | `Rhino.Layer` property |\n'
+                         '| --- | --- | --- |\n'
+                         '| 4 segments or more: `Project::Site::Building::Storey::…` | From the first four '
+                         'segments | The rest of the path |\n'
+                         '| Fewer than 4 segments (`Walls`, `A::B`) | One Default site, building and storey '
+                         '| The whole layer path |\n'
+                         '\n'
+                         'So a model with any layer names exports. The layer is never lost: it is written as '
+                         'the property `Rhino.Layer`.\n'
+                         '\n'
+                         '#### What is written\n'
+                         '\n'
+                         '- Property keys with a type (`Key[Length]`, `Key[Area]`…) keep their IFC type. '
+                         '`Qto_*` sets are written as quantities (IfcElementQuantity).\n'
+                         '- `IfcPredefinedType`, `IfcObjectType`, `IfcDescription`, type objects and '
+                         'presentation layers from [`uIfcImport`](../uifcimport/) are written back.\n'
+                         '- Identical meshes (bolts, repeated plates) share one geometry, which keeps files '
+                         'small.\n'
+                         '- IFC2x3 files carry the owner history and composition type that the schema '
+                         'requires.\n'
+                         '- `IFC4.3` always uses the Python engine.\n'
+                         '- `Also save Model.html` writes a viewer and attribute editor next to the IFC. It '
+                         'opens offline in a browser. Its `Attributes` download goes back into Rhino with '
+                         'uAttribute `Import…`. After export, missing Document User Text keys (site '
+                         'placement, project, site and building names, storey elevations, map conversion) '
+                         'are written for you. Existing keys are never overwritten.\n'
+                         '\n'
+                         '## Document User Text\n'
+                         '\n'
+                         'Run [`uIfcSetupTemplateFile`](../uifcsetuptemplatefile/) before a serious export. '
+                         'Check or edit these keys in **Document Properties -> User Text**.\n'
+                         '\n'
+                         '| Key | Default | Meaning |\n'
+                         '| --- | --- | --- |\n'
+                         '| `IFC.SitePlacement` | `Local` | `Local`: the site is placed at Z = 0, the '
+                         'engineering elevation stays on the object, and each storey placement Z equals its '
+                         'storey Elevation. `Anchor`, `Mean` or `Legacy` anchor the site at the mean XYZ of '
+                         'the objects (older behavior). |\n'
+                         '| `IFC.Storey.{Building}.{Storey}.Elevation` or `IFC.Storey.{Storey}.Elevation` | '
+                         'Lowest Z of the storey objects when not set | Storey elevation. The name must '
+                         'match the storey segment of the layer path. |\n'
+                         '| `IFC.MapConversion.Eastings`, `Northings`, `OrthogonalHeight` | `0` | Map '
+                         'conversion origin. With `Local` placement and a value of 0 (unset), export writes '
+                         'the mean XY and the mean Z (or `IFC.Offset.Z`). |\n'
+                         '| `IFC.Offset.X`, `IFC.Offset.Y`, `IFC.Offset.Z` | `0` | Geometry offset, '
+                         'independent of the map conversion. |\n'
+                         '| `IFC.Schema` | `IFC4` | Default schema (`IFC4`, `IFC2X3` or `IFC4X3`). |\n'
+                         '| `IFC.UseBridge` | `False` | With `IFC4X3`, `True` writes IfcBridge and '
+                         'IfcBridgePart. |'},
+ 'uvisibilityadd': {'steps': ['Run `uVisibility` first to open the Comma Visibility panel.',
+                              'Click `Add` in the panel, or run `uVisibilityAdd`. The prompt reads `Select '
+                              'more objects to add.`',
+                              'Select more objects and press Enter (or Esc) to finish.',
+                              'The added objects appear in the panel, where you can use `Hide`, `Isolate`, '
+                              '`Show all`, `Remove`, `Select` and `Clear`.'],
+                    'notes': 'If the panel is not open the command says `Comma Visibility panel is not open. '
+                             'Run uVisibility first.` The panel lists objects by Layer and Type. Pick a '
+                             '`Key` and a `Value` above the table to narrow the list to the objects that '
+                             'carry that user-text value; the value column is then named after the key.'}}
+for _cmd in COMMANDS:
+    _cmd.update(_PAGES_26_2.get(_cmd['slug'], {}))
 
 
 _CODE_SPAN = re.compile(r"(`[^`]*`)")

@@ -18,7 +18,7 @@ Exports the selected objects to an IFC file. The IFC type comes from object user
 3. The modal dialog `uIfcExport - Export IFC` opens. Choose the `Save to` file with Browse.
 4. Choose the `Engine`: `Python (ifcopenshell)` (default) or `Xbim C# native`, and the `Schema`: `IFC2x3`, `IFC4` (default) or `IFC4.3`.
 5. Choose the `Meshing`: `Render Mesh (recommended)` or `Detail Mesh (slower)`. For Detail Mesh also set `Max angle (deg)` and `Max edge-to-surface`.
-6. Tick the checkboxes you need (IFC4X3 Bridge mode, Optimize IFC4 mesh, Export detailed report).
+6. Tick the checkboxes you need (IFC4X3 Bridge mode, Optimize IFC4 mesh, Export detailed report, Also save Model.html).
 7. Check the shared-origin label, then click `Export`.
 8. The command line prints the exported, failed and skipped counts.
 
@@ -35,9 +35,29 @@ Exports the selected objects to an IFC file. The IFC type comes from object user
 | IFC4X3 Bridge mode | On, off | Only visible with IFC4.3. Also driven by IFC.UseBridge. |
 | Optimize IFC4 mesh (IfcTriangulatedFaceSet) | On, off (default on) | Writes compact triangulated face sets. Ignored for IFC2x3. |
 | Export detailed report to Desktop (.log) | On, off | Writes a log file. |
+| Also save Model.html (viewer + attribute editor, model inside) | On, off | Writes an offline viewer and editor next to the IFC file. |
+| Structure line | Information | The tree the layers give: sites, buildings, storeys, an example path, and how many objects go to Default. Check it before Export when layers are not set up with uIfcSetupTemplateFile. |
 | Shared origin label | Information | Shows the shared origin from IFC.Offset X, Y and Z, or a warning to run uIfcSetupTemplateFile. |
 
-IFC type is read from the object user text `IfcType` (or `IFC.Type`), then from a type token in the layer path, otherwise IfcBuildingElementProxy is used. The layer path is read as segment 0 Project, 1 Site, 2 Building, 3 Storey, and the rest is group and name. After export, missing Document User Text keys (site placement, project, site and building names, storey elevations, map conversion) are written for you. Existing keys are never overwritten.
+IFC type is read from the object user text `IfcType` (or `IFC.Type`), then from a type token in the layer path, otherwise IfcBuildingElementProxy is used. Every IFC4 element class is written as itself (beams, railings, piles, fasteners).
+
+#### Layers
+
+| Layer path | Spatial structure | `Rhino.Layer` property |
+| --- | --- | --- |
+| 4 segments or more: `Project::Site::Building::Storey::…` | From the first four segments | The rest of the path |
+| Fewer than 4 segments (`Walls`, `A::B`) | One Default site, building and storey | The whole layer path |
+
+So a model with any layer names exports. The layer is never lost: it is written as the property `Rhino.Layer`.
+
+#### What is written
+
+- Property keys with a type (`Key[Length]`, `Key[Area]`…) keep their IFC type. `Qto_*` sets are written as quantities (IfcElementQuantity).
+- `IfcPredefinedType`, `IfcObjectType`, `IfcDescription`, type objects and presentation layers from [`uIfcImport`](../uifcimport/) are written back.
+- Identical meshes (bolts, repeated plates) share one geometry, which keeps files small.
+- IFC2x3 files carry the owner history and composition type that the schema requires.
+- `IFC4.3` always uses the Python engine.
+- `Also save Model.html` writes a viewer and attribute editor next to the IFC. It opens offline in a browser. Its `Attributes` download goes back into Rhino with uAttribute `Import…`. After export, missing Document User Text keys (site placement, project, site and building names, storey elevations, map conversion) are written for you. Existing keys are never overwritten.
 
 ## Document User Text
 

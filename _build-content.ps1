@@ -1,12 +1,7 @@
 ﻿# Regenerates content/ from the catalog research. Re-run after editing the data below.
 $ErrorActionPreference = "Stop"
 $root = Join-Path $PSScriptRoot "content"
-# Revit guides are maintained directly under content/revit.
-if (Test-Path $root) {
-    Get-ChildItem -LiteralPath $root -Force |
-        Where-Object { -not ($_.PSIsContainer -and $_.Name -eq "revit") } |
-        Remove-Item -Recurse -Force
-}
+if (Test-Path $root) { Remove-Item $root -Recurse -Force }
 New-Item -ItemType Directory -Force -Path $root | Out-Null
 $utf8 = New-Object System.Text.UTF8Encoding $false
 $arrow = [char]0x2192
@@ -96,40 +91,14 @@ layout: hextra-home
 
 <div class="hx:mb-6 hx:flex hx:flex-wrap hx:gap-3">
 {{< hextra/hero-button text="Rhino guide" link="rhino" >}}
-{{< hextra/hero-button text="About" link="about" >}}
 {{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues" >}}
 </div>
 
 {{< hextra/feature-grid >}}
-  {{< hextra/feature-card title="CommaRh" subtitle="Rhino 8 modeling, drafting, and CAD/IFC exchange. Install from the Package Manager." link="rhino/" >}}
+  {{< hextra/feature-card title="CommaRh" subtitle="Rhino 8 and 9 modeling, drafting, and CAD/IFC exchange. Install from the Package Manager." link="rhino/" >}}
   {{< hextra/feature-card title="CommaTs" subtitle="Tekla Structures model and drawing plugins. Guide pages land here as the team publishes them." link="tekla/" >}}
-  {{< hextra/feature-card title="CommaRvt" subtitle="Model checks, drawing exports, and coordination tools for Revit." link="revit/" >}}
+  {{< hextra/feature-card title="CommaRvt" subtitle="Revit tools — placeholder until the product ships." link="revit/" >}}
 {{< /hextra/feature-grid >}}
-"@
-
-# --- About ---
-W "about/_index.md" @"
----
-title: About
----
-
-![Comma team](/images/team.jpg)
-
-Comma is built by three people: **Dinh Lam**, **Duy Trung**, and **Toan Do**.
-
-We started Comma to fix problems we face every day in our own work. We design tools from a real user's point of view: make common tasks faster, cut repeated manual work, and manage projects more clearly.
-
-These tools come from more than ten years of practice. Some commands solve small, everyday gaps. Others tackle harder cases that the base software still does not cover well.
-
-Comma is part of our own wishlist — and a way to use the strengths of each host app together.
-
-| Person | Focus |
-| --- | --- |
-| **Dinh Lam** | Rhino — **CommaRh** |
-| **Duy Trung** | Tekla Structures — **CommaTs** |
-| **Toan Do** | Revit — **CommaRvt** |
-
-If something breaks or feels wrong while you use the tools, please [open an issue](https://github.com/Comma3D/comma-docs/issues). We welcome feedback.
 "@
 
 # --- Rhino product home (Trung-style) ---
@@ -143,7 +112,7 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Modeling, drafting, and CAD/IFC exchange for Rhino 8.&nbsp;<br class="hx:sm:block hx:hidden" />
+  Modeling, drafting, and CAD/IFC exchange for Rhino 8 and 9.&nbsp;<br class="hx:sm:block hx:hidden" />
   Install from the Package Manager (``CommaRh``).
 {{< /hextra/hero-subtitle >}}
 </div>
@@ -176,7 +145,7 @@ cascade:
   type: docs
 ---
 
-CommaRh is a Rhino 8 toolkit for inspection, modeling, drafting, and CAD/IFC exchange. Run ``commaMenu`` and choose a group: Doc, Curve, Surface, Brep, Mesh, Drafting, CAD, or IFC.
+CommaRh is a Rhino 8 and 9 toolkit for inspection, modeling, drafting, and CAD/IFC exchange. Run ``commaMenu`` and choose a group: Doc, Curve, Surface, Brep, Mesh, Drafting, CAD, or IFC.
 
 Panel actions stay inside their panels. This guide lists the public commands only.
 
@@ -200,8 +169,8 @@ weight: 1
 
 Every public command documented under Rhino ships together in one Package Manager package, **CommaRh**. One install gives you the type menu, the panels, CAD/IFC exchange, and the licence manager — there is no separate installer to download, and you do not copy files by hand.
 
-- To install: open Rhino 8 on Windows, run ``PackageManager``, search for ``CommaRh``, and click **Install**.
-- Supported versions: Rhino 8 (Windows).
+- To install: open Rhino 8 or 9 on Windows, run ``PackageManager``, search for ``CommaRh``, and click **Install**.
+- Supported versions: Rhino 8 and Rhino 9 (Windows).
 - Current guide version: 26.1.9. Package Manager shows the version that is installed on this computer.
 - Update history: [Changelog](changelog/) (and GitHub Releases tagged ``CommaRh-v*`` on [Comma3D/comma-docs](https://github.com/Comma3D/comma-docs/releases)).
 
@@ -274,7 +243,7 @@ Issues are for **new** reports. Past Package Manager updates live on the [Change
 Include:
 
 - The installed CommaRh version shown in Package Manager
-- The Rhino 8 version
+- The Rhino version (8 or 9)
 - The command name
 - What you expected and what happened
 
@@ -371,6 +340,45 @@ cascade:
 Tekla guide content is not in this repository yet. Collaborators can add markdown under ``content/tekla/docs/`` on ``main``; GitHub Actions will publish it.
 
 Until then, the existing public Tekla guide remains at [trungvuduy.github.io/comma-ts-releases](https://trungvuduy.github.io/comma-ts-releases/). Use the ``tekla`` label on [Issues](https://github.com/Comma3D/comma-docs/issues).
+"@
+
+W "revit/_index.md" @"
+---
+title: CommaRvt
+layout: hextra-home
+---
+
+{{< hextra/hero-badge >}}
+  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
+  <span>Revit</span>
+{{< /hextra/hero-badge >}}
+
+<div class="hx:mt-6 hx:mb-6">
+{{< hextra/hero-headline >}}
+  CommaRvt
+{{< /hextra/hero-headline >}}
+</div>
+
+<div class="hx:mb-12">
+{{< hextra/hero-subtitle >}}
+  Revit tools — placeholder until the product ships.
+{{< /hextra/hero-subtitle >}}
+</div>
+
+<div class="hx:mb-6">
+{{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arevit" >}}
+</div>
+"@
+
+W "revit/docs/_index.md" @"
+---
+title: CommaRvt docs
+linkTitle: Documentation
+cascade:
+  type: docs
+---
+
+CommaRvt is not released yet. This section is a placeholder so the suite navbar stays stable. Use the ``revit`` label on [Issues](https://github.com/Comma3D/comma-docs/issues) when that product starts.
 "@
 
 # Detailed command pages (Steps + Options from code research)

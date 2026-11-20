@@ -14,7 +14,7 @@ Batch exports selected objects into several DWG, 3DM or DXF files, one file per 
 #### Steps
 
 1. Run `uDwgExport`. At `Select objects to batch export` pick any objects (preselected objects are accepted).
-2. The modal dialog `uDwgExport - Batch export (DWG/3DM/DXF)` opens. Choose the `Export folder` (default Desktop).
+2. The modal dialog `Comma DWG Export` opens. Choose the `Export folder` (default Desktop).
 3. Choose the `Format` (.dwg, .3dm or .dxf) and the `File name prefix` (default Export).
 4. Choose the `Export mode`: `Layer` (default, one file per layer group) or `Object` (one file per selected object).
 5. Set `Level N` (0 to 9). Level 0 is the root of the layer table, the same as path level 1.

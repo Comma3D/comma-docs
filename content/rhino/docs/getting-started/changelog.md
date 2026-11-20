@@ -9,6 +9,22 @@ Report a new problem on [Issues](https://github.com/Comma3D/comma-docs/issues?q=
 
 Short notes for Package Manager users.
 
+## [26.2.0] - 2026-11-19
+
+- Attribute Manager: project picklists fill class, values and IfcType from the layer name. Double-click Id to change the class and move the layer.
+- IFC import and export keep units, quantities, types and layers from Revit, Tekla and Allplan files.
+- IFC export works with any layer names; the layer is kept as the property Rhino.Layer.
+- uIfcExportHtml writes Model.html next to an IFC file: an offline viewer and attribute editor.
+- IFC export can group objects by the layers below the storey (IfcGroup, off by default).
+- Attribute Manager: picklist filter takes several values; large tables edit much faster.
+- Visibility panel filters by key and value; Ctrl / Shift multi-select, Alt+click isolates.
+- IFC import puts objects of one name on one layer under the storey; Comma files keep their layers.
+- IFC export shows the Site / Building / Storey tree your layers give before you export.
+- commaMenu: launcher with search and a short description per command.
+- Sort toolbar Loft has Type and Closed. Try Get Circle fits faceted circles to the true radius.
+- Cleaner dialogs: buttons fit their text, one action row on the right.
+- Runs on Rhino 8 and Rhino 9.
+
 ## [26.1.9] - 2026-11-14
 
 - Attribute Manager and Visibility panels: faster Sync, Id-based CSV/JSON, group colors.

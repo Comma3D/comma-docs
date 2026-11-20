@@ -5,8 +5,8 @@ weight: 1
 
 Every public command documented under Rhino ships together in one Package Manager package, **CommaRh**. One install gives you the type menu, the panels, CAD/IFC exchange, and the licence manager — there is no separate installer to download, and you do not copy files by hand.
 
-- To install: open Rhino 8 on Windows, run `PackageManager`, search for `CommaRh`, and click **Install**.
-- Supported versions: Rhino 8 (Windows).
+- To install: open Rhino 8 or 9 on Windows, run `PackageManager`, search for `CommaRh`, and click **Install**.
+- Supported versions: Rhino 8 and Rhino 9 (Windows).
 - Current guide version: 26.1.9. Package Manager shows the version that is installed on this computer.
 - Update history: [Changelog](changelog/) (and GitHub Releases tagged `CommaRh-v*` on [Comma3D/comma-docs](https://github.com/Comma3D/comma-docs/releases)).
 

@@ -10,7 +10,7 @@ Issues are for **new** reports. Past Package Manager updates live on the [Change
 Include:
 
 - The installed CommaRh version shown in Package Manager
-- The Rhino 8 version
+- The Rhino version (8 or 9)
 - The command name
 - What you expected and what happened
 

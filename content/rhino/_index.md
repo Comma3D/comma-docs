@@ -7,7 +7,7 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Modeling, drafting, and CAD/IFC exchange for Rhino 8.&nbsp;<br class="hx:sm:block hx:hidden" />
+  Modeling, drafting, and CAD/IFC exchange for Rhino 8 and 9.&nbsp;<br class="hx:sm:block hx:hidden" />
   Install from the Package Manager (`CommaRh`).
 {{< /hextra/hero-subtitle >}}
 </div>
