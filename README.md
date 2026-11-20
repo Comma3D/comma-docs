@@ -6,7 +6,7 @@ Public user guides for Comma products:
 | --- | --- | --- |
 | CommaRh | `content/rhino/` | Published |
 | CommaTs | `content/tekla/` | Placeholder (migrate from the Tekla site when ready) |
-| CommaRvt | `content/revit/` | Placeholder |
+| CommaRvt | `content/revit/` | Installation and troubleshooting guide |
 
 Live site: https://comma3d.github.io/comma-docs/
 

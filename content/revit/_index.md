@@ -16,10 +16,10 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Revit tools — placeholder until the product ships.
+  Install, update and troubleshoot CommaRvt for Autodesk Revit.
 {{< /hextra/hero-subtitle >}}
 </div>
 
 <div class="hx:mb-6">
-{{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arevit" >}}
+{{< hextra/hero-button text="Installation guide" link="docs/installation/" >}}
 </div>
