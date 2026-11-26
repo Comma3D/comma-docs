@@ -7,7 +7,7 @@ Public user guides for Comma products:
 | CommaRh | `content/rhino/` | Published |
 | CommaGh | `content/grasshopper/` | Published (written by hand, the component pages are generated, see below) |
 | CommaTs | `content/tekla/` | Published (generated from the CommaTs guide, see below) |
-| CommaRvt | `content/revit/` | Installation and troubleshooting guide |
+| CommaRvt | `content/revit/` | Installation guide and ribbon guides for v26.1.0 |
 
 Live site: https://comma3d.github.io/comma-docs/
 
