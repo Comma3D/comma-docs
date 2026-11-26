@@ -16,4 +16,4 @@ Include:
 
 Leave licence keys out of the issue. For a new key, use `commaRegister` or [comma3d.aec@gmail.com](mailto:comma3d.aec@gmail.com).
 
-This repository is also the place other Comma products publish their guides. Push markdown under `content/rhino`, `content/tekla`, or `content/revit` on the `main` branch; GitHub Actions rebuilds the site.
+This repository is also the place other Comma products publish their guides. Push markdown under `content/rhino`, `content/grasshopper`, `content/tekla`, or `content/revit` on the `main` branch; GitHub Actions rebuilds the site.

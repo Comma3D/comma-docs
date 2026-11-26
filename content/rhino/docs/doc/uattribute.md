@@ -16,9 +16,9 @@ Opens the Comma Attribute Manager, a modeless table of object Layer, Name, Color
 1. Run `uAttribute`. The Comma Attribute Manager opens.
 2. Choose the scope (`Selected`, `Visible` or `All`) and, with `Object ▾`, which object kinds are read. Click `Sync`.
 3. Click `Columns` to choose which user-text keys are shown.
-4. Optional: click `Picklist` and load a picklist (Comma template `.xlsx`, Classification Manager workbook or `.json`). Pick a filter (for example LOD or phase) in the dropdown next to it.
-5. Edit cells. Nothing is written until you click `Set`.
-6. Double-click an **Id** cell to open the **Properties** panel for that object (see below). Double-click any other cell to zoom to the object.
+4. Optional: click `Picklist` and load a picklist (Comma template `.xlsx`, Classification Manager workbook or `.json`). Tick one or more filter values (for example LOD or phase) in the menu next to it: the menu stays open while you tick, the table updates when it closes.
+5. Edit cells. Nothing is written until you click `Set`. Columns with a tinted header and `▾` pick from a list: double-click the cell, type to search, press Enter. The value goes to every selected row when the clicked row is part of the selection.
+6. Double-click an **Id** cell to open the **Properties** panel for that object (see below). Double-click a plain cell to zoom to the object.
 7. Click `Set` to write the edits to the objects.
 
 #### Picklist
@@ -55,10 +55,10 @@ When you pick another class, a prompt asks what to do with the layer:
 | Scope | Selected, Visible, All (default Visible). |
 | Sync / Set | Read the objects into the table / write the edits back. |
 | Columns | Choose, order and save presets of the shown keys. |
-| Group by, Group, Clear Color | Color model and rows by a key value, collapse rows, restore colors. |
-| Picklist, filter, ? | Load or save a picklist, filter its parameters, open the picklist guide. |
+| Group by, Collapse, Clear Color | Color model and rows by a key value, collapse rows, restore colors. |
+| Picklist, filter ▾, ? | Load or save a picklist, filter its parameters (tick several values), open the picklist guide. |
 | Object ▾ | Object kinds read by Sync. |
-| ⋯ | Cal Volume, Cal Area, units (m or mm), Import…, Export…. |
+| Options ▾ | Cal Volume, Cal Area, units (m or mm), Import…, Export…. |
 | Select all, None, Show, Hide, Isolate, Restore | Act on the objects of the rows shown. |
 | Search | `ST*`, `Trade=STR`, `Layer=Walls::*`, `-Slab`, `STR|ARC`. |
 

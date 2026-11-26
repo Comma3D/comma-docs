@@ -18,7 +18,7 @@ Exports the selected objects to an IFC file. The IFC type comes from object user
 3. The modal dialog `uIfcExport - Export IFC` opens. Choose the `Save to` file with Browse.
 4. Choose the `Engine`: `Python (ifcopenshell)` (default) or `Xbim C# native`, and the `Schema`: `IFC2x3`, `IFC4` (default) or `IFC4.3`.
 5. Choose the `Meshing`: `Render Mesh (recommended)` or `Detail Mesh (slower)`. For Detail Mesh also set `Max angle (deg)` and `Max edge-to-surface`.
-6. Tick the checkboxes you need (IFC4X3 Bridge mode, Optimize IFC4 mesh, Export detailed report, Also save Model.html).
+6. Tick the checkboxes you need (IFC4X3 Bridge mode, Optimize IFC4 mesh, Layer groups, Also save Model.html, Export detailed report).
 7. Check the shared-origin label, then click `Export`.
 8. The command line prints the exported, failed and skipped counts.
 
@@ -35,7 +35,8 @@ Exports the selected objects to an IFC file. The IFC type comes from object user
 | IFC4X3 Bridge mode | On, off | Only visible with IFC4.3. Also driven by IFC.UseBridge. |
 | Optimize IFC4 mesh (IfcTriangulatedFaceSet) | On, off (default on) | Writes compact triangulated face sets. Ignored for IFC2x3. |
 | Export detailed report to Desktop (.log) | On, off | Writes a log file. |
-| Also save Model.html (viewer + attribute editor, model inside) | On, off | Writes an offline viewer and editor next to the IFC file. |
+| Layer groups below the storey (IfcGroup) | On, off (default off) | Each layer level under Project::Site::Building::Storey becomes a group, so a viewer can show the layer tree. Objects stay in their storey. |
+| Also save Model.html (viewer + attribute editor) | On, off (default off) | Writes Model.html next to the IFC: an offline viewer and attribute editor. For an IFC from another program use uIfcExportHtml. |
 | Structure line | Information | The tree the layers give: sites, buildings, storeys, an example path, and how many objects go to Default. Check it before Export when layers are not set up with uIfcSetupTemplateFile. |
 | Shared origin label | Information | Shows the shared origin from IFC.Offset X, Y and Z, or a warning to run uIfcSetupTemplateFile. |
 

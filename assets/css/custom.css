@@ -10,3 +10,15 @@
   --primary-saturation: 95%;
   --primary-lightness: 55%;
 }
+
+/* CommaTs pages are generated from the CommaTs guide (see README): an "Edit this page" link would lead to a file that
+   the next publish overwrites. */
+a[href*="/edit/main/content/tekla/"] {
+  display: none;
+}
+
+/* The CommaGh component pages are generated from the plugin source (see README): an "Edit this page" link would lead
+   to a file that the next generation overwrites. */
+a[href*="/edit/main/content/grasshopper/docs/components/"] {
+  display: none;
+}

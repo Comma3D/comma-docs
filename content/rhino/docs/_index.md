@@ -6,7 +6,7 @@ cascade:
   type: docs
 ---
 
-CommaRh is a Rhino 8 and 9 toolkit for inspection, modeling, drafting, and CAD/IFC exchange. Run `commaMenu` and choose a group: Doc, Curve, Surface, Brep, Mesh, Drafting, CAD, or IFC.
+CommaRh is a Rhino 8 and 9 toolkit for inspection, modeling, drafting, and CAD/IFC exchange. Run `commaMenu` and choose a group: Doc, Curve, Surface, Brep, Mesh, Drafting, CAD, IFC, or Animation.
 
 Panel actions stay inside their panels. This guide lists the public commands only.
 

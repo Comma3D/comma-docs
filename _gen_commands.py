@@ -24,10 +24,10 @@ ARROW = "\u2192"
 SECTIONS = {
     "doc": "Doc", "curve": "Curve", "surface": "Surface", "brep": "Brep",
     "mesh": "Mesh", "drafting": "Drafting", "cad": "CAD", "ifc": "IFC",
-    "more": "More",
+    "animation": "Animation", "more": "More",
 }
-NOT_ON_MENU = {"uquicktoolsconfig", "commamenu", "uexportbox", "uvisibilityadd"}
-EXPECTED_COUNT = 48
+NOT_ON_MENU = {"uquicktoolsconfig", "commamenu", "uexportbox", "uvisibilityadd", "uifcexporthtml", "ubcf"}
+EXPECTED_COUNT = 51
 
 # Command data: title, slug, section, group, onMenu, summary, steps,
 # options [{name, values, does}], notes, extra.
@@ -1699,6 +1699,73 @@ COMMANDS = [{'title': 'uLayer',
               {'name': 'Close', 'values': 'Button', 'does': 'Closes the dialog.'}],
   'notes': 'ifcopenshell and numpy are required; orjson is optional.',
   'extra': ''},
+ {'title': 'uIfcExportHtml',
+ 'slug': 'uifcexporthtml',
+ 'section': 'ifc',
+ 'group': 'IFC',
+ 'onMenu': False,
+ 'summary': 'Writes Model.html next to any IFC file: one offline page that shows the model in 3D with a '
+            'structure tree, an attribute table and a Properties panel. Edit attributes, save a new IFC, and '
+            'write or answer BCF issues. No install and no upload: the file stays on the computer.',
+ 'steps': ['Run `uIfcExportHtml` and pick the IFC file.',
+           'Model.html is written next to it, with the same name. The IFC is inside the page up to 150 MB; a '
+           'larger IFC is opened with `Open IFC` in the page.',
+           'Open Model.html in Chrome, Edge or Firefox. The uAttribute picklist, when one is loaded, is in '
+           'the page too, for dropdowns and required fields.',
+           '`Issue` saves the view, a picture and the selected objects as a BCF topic; `Open BCF` shows a '
+           '.bcfzip over the 3D view to read, comment and change status. See uBcf.'],
+ 'options': [],
+ 'notes': 'To make the page while exporting from Rhino, tick `Also save Model.html` in uIfcExport.',
+ 'extra': ''},
+ {'title': 'uBcf',
+ 'slug': 'ubcf',
+ 'section': 'ifc',
+ 'group': 'IFC',
+ 'onMenu': False,
+ 'summary': 'Opens the Comma BCF window: the issues of a .bcfzip (BCF 2.1) with their pictures. Click an '
+            'issue to select its objects by GlobalId and go to its view. Change type, status, priority, '
+            'assigned to, due date, labels and stage, add comments, make a new issue from the active view, '
+            'and save the file for Solibri, BIMcollab, Revit plugins or Model.html.',
+ 'steps': ['Run `uBcf`. The Comma BCF window opens with the last file used.',
+           '`Open…` a .bcfzip. When it holds issues of the file already open (a copy sent out and returned), '
+           'it is merged in: new comments and changes are marked ● until you save, and the status line says '
+           'what came in (for example `1 new comment · 1 status changed`).',
+           'Click an issue: its objects are selected and the view is set. The list filters by status, '
+           'assigned to (`Me`), label and `Overdue`; a due date in the past shows in red.',
+           'Edit the fields below the list, or type a comment and press `Add comment`.',
+           '`New from view` makes an issue from the active view, its picture and the selected objects.',
+           '`Save` writes the file; `Save as…` writes a copy.'],
+ 'options': [{'name': 'Status, Type, Priority, Labels, Stage',
+              'values': 'Lists of the file, else Comma defaults',
+              'does': 'Values another tool wrote are kept and shown.'},
+             {'name': 'Due', 'values': 'yyyy-mm-dd, ▾ calendar, × clears', 'does': 'Date only.'},
+             {'name': 'Assigned to', 'values': 'Name or e-mail', 'does': 'Pick from the list or type.'}],
+ 'notes': 'A BCF 3.0 file opens read only. Model.html (uIfcExportHtml) reads and writes the same files, so a '
+          'client without Rhino can answer an issue in the browser and send the file back.',
+ 'extra': ''},
+ {'title': 'uAnimation',
+ 'slug': 'uanimation',
+ 'section': 'animation',
+ 'group': 'Animation',
+ 'onMenu': True,
+ 'summary': 'Opens the animation panel: move parts along curves, lines and axes, link them to a leader, bend '
+            'a chain, play the timeline, and export one MP4 video or PNG frames. Play only previews; the '
+            'model changes only with `Apply pose`.',
+ 'steps': ['Run `uAnimation`. The panel shows the steps: 1 Add a motion, 2 Pick the objects and what drives '
+           'them, 3 Press Play.',
+           '`Add motion`, then choose how the objects move: Move along a curve, Slide along a line, Follow '
+           'two curves, Follow a leader, Turn around an axis, Planes from a table, Highlight only or Bend a '
+           'chain (IK). Pick the objects and the curve, line or axis.',
+           'Set the frames (`Start`, `End`) and the speed over time; `Show guides` draws the curves and axes '
+           'in the viewport.',
+           'Press `Play`. Drag the slider to preview any frame.',
+           'Export: choose `MP4 video` (default) or `PNG frames`, the quality (High, Medium, Small), the '
+           'view and the folder, then `Export MP4` or `Export PNG`.',
+           '`Save` keeps the animation in a file; `Open` reads it back. `uAnimationSample1` and '
+           '`uAnimationSample2` build two examples.'],
+ 'options': [],
+ 'notes': 'MP4 uses the H.264 encoder of Windows; when it is missing the panel says so and no file is left.',
+ 'extra': ''},
  {'title': 'commaMenu',
   'slug': 'commamenu',
   'section': 'more',
@@ -1764,7 +1831,7 @@ COMMANDS = [{'title': 'uLayer',
 
 
 
-# 26.2.0 page text for uAttribute, uIfcImport, uIfcExport, uVisibilityAdd.
+# 26.2.0 page text for uAttribute, uIfcImport, uIfcExport, uVisibilityAdd (uAttribute, uIfcExport updated for 26.2.3).
 _PAGES_26_2 = {'uattribute': {'summary': 'Opens the Comma Attribute Manager, a modeless table of object Layer, Name, Color '
                            'and user-text keys. You edit values in bulk, fill them from a project picklist, '
                            'group and color objects by a key, and exchange the table with the IFC editor '
@@ -1774,11 +1841,14 @@ _PAGES_26_2 = {'uattribute': {'summary': 'Opens the Comma Attribute Manager, a m
                           'object kinds are read. Click `Sync`.',
                           'Click `Columns` to choose which user-text keys are shown.',
                           'Optional: click `Picklist` and load a picklist (Comma template `.xlsx`, '
-                          'Classification Manager workbook or `.json`). Pick a filter (for example LOD or '
-                          'phase) in the dropdown next to it.',
-                          'Edit cells. Nothing is written until you click `Set`.',
+                          'Classification Manager workbook or `.json`). Tick one or more filter values (for '
+                          'example LOD or phase) in the menu next to it: the menu stays open while you tick, '
+                          'the table updates when it closes.',
+                          'Edit cells. Nothing is written until you click `Set`. Columns with a tinted header '
+                          'and `▾` pick from a list: double-click the cell, type to search, press Enter. The '
+                          'value goes to every selected row when the clicked row is part of the selection.',
                           'Double-click an **Id** cell to open the **Properties** panel for that object (see '
-                          'below). Double-click any other cell to zoom to the object.',
+                          'below). Double-click a plain cell to zoom to the object.',
                           'Click `Set` to write the edits to the objects.'],
                 'options': [],
                 'notes': '',
@@ -1824,12 +1894,12 @@ _PAGES_26_2 = {'uattribute': {'summary': 'Opens the Comma Attribute Manager, a m
                          '| Scope | Selected, Visible, All (default Visible). |\n'
                          '| Sync / Set | Read the objects into the table / write the edits back. |\n'
                          '| Columns | Choose, order and save presets of the shown keys. |\n'
-                         '| Group by, Group, Clear Color | Color model and rows by a key value, collapse '
+                         '| Group by, Collapse, Clear Color | Color model and rows by a key value, collapse '
                          'rows, restore colors. |\n'
-                         '| Picklist, filter, ? | Load or save a picklist, filter its parameters, open the '
-                         'picklist guide. |\n'
+                         '| Picklist, filter ▾, ? | Load or save a picklist, filter its parameters (tick '
+                         'several values), open the picklist guide. |\n'
                          '| Object ▾ | Object kinds read by Sync. |\n'
-                         '| ⋯ | Cal Volume, Cal Area, units (m or mm), Import…, Export…. |\n'
+                         '| Options ▾ | Cal Volume, Cal Area, units (m or mm), Import…, Export…. |\n'
                          '| Select all, None, Show, Hide, Isolate, Restore | Act on the objects of the rows '
                          'shown. |\n'
                          '| Search | `ST*`, `Trade=STR`, `Layer=Walls::*`, `-Slab`, `STR|ARC`. |\n'
@@ -1931,8 +2001,8 @@ _PAGES_26_2 = {'uattribute': {'summary': 'Opens the Comma Attribute Manager, a m
                           'the `Schema`: `IFC2x3`, `IFC4` (default) or `IFC4.3`.',
                           'Choose the `Meshing`: `Render Mesh (recommended)` or `Detail Mesh (slower)`. For '
                           'Detail Mesh also set `Max angle (deg)` and `Max edge-to-surface`.',
-                          'Tick the checkboxes you need (IFC4X3 Bridge mode, Optimize IFC4 mesh, Export '
-                          'detailed report, Also save Model.html).',
+                          'Tick the checkboxes you need (IFC4X3 Bridge mode, Optimize IFC4 mesh, Layer groups, '
+                          'Also save Model.html, Export detailed report).',
                           'Check the shared-origin label, then click `Export`.',
                           'The command line prints the exported, failed and skipped counts.'],
                 'options': [{'name': 'Save to',
@@ -1965,9 +2035,14 @@ _PAGES_26_2 = {'uattribute': {'summary': 'Opens the Comma Attribute Manager, a m
                             {'name': 'Export detailed report to Desktop (.log)',
                              'values': 'On, off',
                              'does': 'Writes a log file.'},
-                            {'name': 'Also save Model.html (viewer + attribute editor, model inside)',
-                             'values': 'On, off',
-                             'does': 'Writes an offline viewer and editor next to the IFC file.'},
+                            {'name': 'Layer groups below the storey (IfcGroup)',
+                             'values': 'On, off (default off)',
+                             'does': 'Each layer level under Project::Site::Building::Storey becomes a group, so '
+                                     'a viewer can show the layer tree. Objects stay in their storey.'},
+                            {'name': 'Also save Model.html (viewer + attribute editor)',
+                             'values': 'On, off (default off)',
+                             'does': 'Writes Model.html next to the IFC: an offline viewer and attribute editor. '
+                                     'For an IFC from another program use uIfcExportHtml.'},
                             {'name': 'Structure line',
                              'values': 'Information',
                              'does': 'The tree the layers give: sites, buildings, storeys, an example path, and '

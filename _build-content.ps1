@@ -1,7 +1,14 @@
 ﻿# Regenerates content/ from the catalog research. Re-run after editing the data below.
+# content/tekla, content/grasshopper and content/revit are the exception, and are kept, not rebuilt here: content/tekla is generated
+# from the CommaTs guide by src/CommaTs/docs/site/scripts/convert-guide.mjs and committed; content/grasshopper is
+# written by hand, except docs/components/, which src/Grasshopper/docs/scripts/generate-components.mjs generates;
+# content/revit (the CommaRvt installation guide) is written by hand, taken over from the comma-docs repository.
 $ErrorActionPreference = "Stop"
 $root = Join-Path $PSScriptRoot "content"
-if (Test-Path $root) { Remove-Item $root -Recurse -Force }
+$keep = @("tekla", "grasshopper", "revit")
+if (Test-Path $root) {
+    Get-ChildItem -LiteralPath $root -Force | Where-Object { $keep -notcontains $_.Name } | Remove-Item -Recurse -Force
+}
 New-Item -ItemType Directory -Force -Path $root | Out-Null
 $utf8 = New-Object System.Text.UTF8Encoding $false
 $arrow = [char]0x2192
@@ -84,7 +91,7 @@ layout: hextra-home
 
 <div class="hx:mb-12">
 {{< hextra/hero-subtitle >}}
-  Plugins for Rhino, Tekla Structures, and Revit.&nbsp;<br class="hx:sm:block hx:hidden" />
+  Plugins for Rhino, Grasshopper, Tekla Structures, and Revit.&nbsp;<br class="hx:sm:block hx:hidden" />
   Guides, install steps, and issue tracking in one place.
 {{< /hextra/hero-subtitle >}}
 </div>
@@ -96,7 +103,8 @@ layout: hextra-home
 
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card title="CommaRh" subtitle="Rhino 8 and 9 modeling, drafting, and CAD/IFC exchange. Install from the Package Manager." link="rhino/" >}}
-  {{< hextra/feature-card title="CommaTs" subtitle="Tekla Structures model and drawing plugins. Guide pages land here as the team publishes them." link="tekla/" >}}
+  {{< hextra/feature-card title="CommaGh" subtitle="Grasshopper components, Script Organizer and Container. Install steps and a page per component." link="grasshopper/" >}}
+  {{< hextra/feature-card title="CommaTs" subtitle="Tekla Structures model, drawing and rebar plugins. Install steps and one page per tool." link="tekla/" >}}
   {{< hextra/feature-card title="CommaRvt" subtitle="Revit tools — placeholder until the product ships." link="revit/" >}}
 {{< /hextra/feature-grid >}}
 "@
@@ -145,7 +153,7 @@ cascade:
   type: docs
 ---
 
-CommaRh is a Rhino 8 and 9 toolkit for inspection, modeling, drafting, and CAD/IFC exchange. Run ``commaMenu`` and choose a group: Doc, Curve, Surface, Brep, Mesh, Drafting, CAD, or IFC.
+CommaRh is a Rhino 8 and 9 toolkit for inspection, modeling, drafting, and CAD/IFC exchange. Run ``commaMenu`` and choose a group: Doc, Curve, Surface, Brep, Mesh, Drafting, CAD, IFC, or Animation.
 
 Panel actions stay inside their panels. This guide lists the public commands only.
 
@@ -249,7 +257,7 @@ Include:
 
 Leave licence keys out of the issue. For a new key, use ``commaRegister`` or [comma3d.aec@gmail.com](mailto:comma3d.aec@gmail.com).
 
-This repository is also the place other Comma products publish their guides. Push markdown under ``content/rhino``, ``content/tekla``, or ``content/revit`` on the ``main`` branch; GitHub Actions rebuilds the site.
+This repository is also the place other Comma products publish their guides. Push markdown under ``content/rhino``, ``content/grasshopper``, ``content/tekla``, or ``content/revit`` on the ``main`` branch; GitHub Actions rebuilds the site.
 "@
 
 W "rhino/docs/getting-started/contribute.md" @"
@@ -285,7 +293,8 @@ $sections = @{
     drafting = @{ title = "Drafting"; weight = 7; blurb = "Section, annotation, hatch, and measurements. Open them from ``commaMenu`` $arrow **Drafting**." }
     cad = @{ title = "CAD"; weight = 8; blurb = "DWG and AutoCAD exchange. Open these commands from ``commaMenu`` $arrow **CAD**." }
     ifc = @{ title = "IFC"; weight = 9; blurb = "IFC exchange. Open these commands from ``commaMenu`` $arrow **IFC**." }
-    more = @{ title = "More"; weight = 10; blurb = "Public commands that are not listed on ``commaMenu``. Type the command name." }
+    animation = @{ title = "Animation"; weight = 10; blurb = "Animation timeline and video export. Open it from ``commaMenu`` $arrow **Animation**." }
+    more = @{ title = "More"; weight = 11; blurb = "Public commands that are not listed on ``commaMenu``. Type the command name." }
 }
 foreach ($name in $sections.Keys) {
     $s = $sections[$name]
@@ -299,87 +308,7 @@ $($s.blurb)
 "@
 }
 
-W "tekla/_index.md" @"
----
-title: CommaTs
-layout: hextra-home
----
-
-{{< hextra/hero-badge >}}
-  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
-  <span>Tekla Structures</span>
-{{< /hextra/hero-badge >}}
-
-<div class="hx:mt-6 hx:mb-6">
-{{< hextra/hero-headline >}}
-  CommaTs
-{{< /hextra/hero-headline >}}
-</div>
-
-<div class="hx:mb-12">
-{{< hextra/hero-subtitle >}}
-  Model and drawing plugins for Tekla Structures.&nbsp;<br class="hx:sm:block hx:hidden" />
-  Guide pages will publish here as the Tekla team pushes them.
-{{< /hextra/hero-subtitle >}}
-</div>
-
-<div class="hx:mb-6 hx:flex hx:flex-wrap hx:gap-3">
-{{< hextra/hero-button text="Docs placeholder" link="docs" >}}
-{{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Atekla" >}}
-</div>
-"@
-
-W "tekla/docs/_index.md" @"
----
-title: CommaTs docs
-linkTitle: Documentation
-cascade:
-  type: docs
----
-
-Tekla guide content is not in this repository yet. Collaborators can add markdown under ``content/tekla/docs/`` on ``main``; GitHub Actions will publish it.
-
-Until then, the existing public Tekla guide remains at [trungvuduy.github.io/comma-ts-releases](https://trungvuduy.github.io/comma-ts-releases/). Use the ``tekla`` label on [Issues](https://github.com/Comma3D/comma-docs/issues).
-"@
-
-W "revit/_index.md" @"
----
-title: CommaRvt
-layout: hextra-home
----
-
-{{< hextra/hero-badge >}}
-  <div class="hx:w-2 hx:h-2 hx:rounded-full hx:bg-primary-400"></div>
-  <span>Revit</span>
-{{< /hextra/hero-badge >}}
-
-<div class="hx:mt-6 hx:mb-6">
-{{< hextra/hero-headline >}}
-  CommaRvt
-{{< /hextra/hero-headline >}}
-</div>
-
-<div class="hx:mb-12">
-{{< hextra/hero-subtitle >}}
-  Revit tools — placeholder until the product ships.
-{{< /hextra/hero-subtitle >}}
-</div>
-
-<div class="hx:mb-6">
-{{< hextra/hero-button text="Report an issue" link="https://github.com/Comma3D/comma-docs/issues?q=is%3Aissue+label%3Arevit" >}}
-</div>
-"@
-
-W "revit/docs/_index.md" @"
----
-title: CommaRvt docs
-linkTitle: Documentation
-cascade:
-  type: docs
----
-
-CommaRvt is not released yet. This section is a placeholder so the suite navbar stays stable. Use the ``revit`` label on [Issues](https://github.com/Comma3D/comma-docs/issues) when that product starts.
-"@
+# tekla/ (CommaTs), grasshopper/ (CommaGh) and revit/ (CommaRvt) are not written here: $keep above leaves them alone (see the top of this file).
 
 # Detailed command pages (Steps + Options from code research)
 $gen = Join-Path $PSScriptRoot "_gen_commands.py"
