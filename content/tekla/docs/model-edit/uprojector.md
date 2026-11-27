@@ -10,7 +10,7 @@ aliases: ["/tekla/help/uprojector/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/uprojector.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uProjector` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uProjector` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Projects objects onto a face, a plane, a point on the work plane, or a line, either moving them or creating copies.

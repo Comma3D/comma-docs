@@ -10,7 +10,7 @@ aliases: ["/tekla/help/ucutout/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/ucutout.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uCutout` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uCutout` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Cuts one object out of others: pick a Beam or ContourPlate as the cutter, then the parts to cut.

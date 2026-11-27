@@ -10,7 +10,7 @@ aliases: ["/tekla/help/ucut/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/ucut.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uCut` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uCut` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Creates native plane cuts on parts, from a face, a three-point plane, a line, or a line through two points.

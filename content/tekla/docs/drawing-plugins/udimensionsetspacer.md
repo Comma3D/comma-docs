@@ -10,7 +10,7 @@ aliases: ["/tekla/help/udimensionsetspacer/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/udimensionsetspacer.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uDimensionSetSpacer`
+**Where to find it:** Applications & Components → Comma → Drawing → `uDimensionSetSpacer`
 {{% /callout %}}
 
 Spaces out picked dimension sets so they no longer overlap.

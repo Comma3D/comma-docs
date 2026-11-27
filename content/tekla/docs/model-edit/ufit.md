@@ -10,7 +10,7 @@ aliases: ["/tekla/help/ufit/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/ufit.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uFit` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uFit` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Fits beam ends, plate edges, control lines and rebar ends to a picked reference: a face, a plane, or a line. Set the reference and gap, pick the reference, then pick the objects to fit.

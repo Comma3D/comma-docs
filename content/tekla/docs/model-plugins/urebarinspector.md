@@ -1,7 +1,7 @@
 ---
 title: "uRebarInspector"
-description: "One dialog for the shape and the hooks of selected reinforcement: read a bar into a sketch, edit its points, legs, angles and hooks, then apply the result to…"
-weight: 3
+description: "Checks reinforcement and lists what is wrong. It reads every rebar object in a scope (the Tekla selection, the whole model or a selection filter), runs a set…"
+weight: 1
 aliases: ["/tekla/help/urebarinspector/"]
 ---
 
@@ -10,23 +10,35 @@ aliases: ["/tekla/help/urebarinspector/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/urebarinspector.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Rebar → `uRebarInspector`
+**Where to find it:** Applications & Components → Comma → Rebar → `uRebarInspector` (also on the Comma ribbon tab, Rebar block)
 {{% /callout %}}
 
-One dialog for the shape and the hooks of selected reinforcement: read a bar into a sketch, edit its points, legs, angles and hooks, then apply the result to the model. It replaces the former uRebarShapeTools and uRebarHookTools.
+Checks reinforcement and lists what is wrong. It reads every rebar object in a scope (the Tekla selection, the whole model or a selection filter), runs a set of rules on it and shows the findings in a list grouped by rule. It changes nothing in the model: the fixes are two Model Edit tools, [uRebarHook](../../model-edit/urebarhook/) (hook tail, angle, rotation and side) and [uRebarShape](../../model-edit/urebarshape/) (offset, flatten, flip cover, bake offsets, explode hooks, bends and hooks to the catalog). Together with uRebarHook and uRebarShape it replaces the former uRebarShapeTools and uRebarHookTools.
+
+**The window.** The strip at the top shows how many findings are open, with three toggles, *Errors*, *Warnings* and *Info*, that choose which severities are listed. The list is grouped by rule: a group row shows the rule, how many bars it flags and a button that selects those bars in Tekla; where a tool can fix the finding, the row names it (for example *uRebarHook › Set tail*). Open a group to see its bars; only the cell that caused a finding is coloured. The bar at the bottom shows how many rows are selected, which tool to run next, *Select in Tekla* and *Accept*.
+
+**The check.** *Scope* chooses what is read: *Tekla selection (live)* reads the selection again whenever it changes, *Tekla selection (snapshot)* reads it once, *Whole model* reads every rebar object (press the scan button), and *Selection filter* reads what a Tekla selection filter picks. The scan runs in steps so the window stays usable; *Stop* keeps what was read. Each object can have several findings. The filter box takes terms such as `size=12 shape=11A length>6000 name=T* rule=LENGTH_MAX` (hover the ? for the syntax).
+
+The *View* menu holds *Group by* (the levels of the list, with presets), *Columns*, *Colour bars in Tekla* (colours the bars shown by severity; clearing the colours also clears colours other tools set), *Export and saved scans* (the rows as CSV, the whole scan as JSON, and a saved scan opened again) and four switches: *Follow Tekla selection* selects the rows of what you select in Tekla, *Select on click* (off by default) selects the bars of a clicked row in Tekla with a single click, *Only Tekla selection* hides the other rows, and *Show bars without findings* lists the clean bars too.
+
+| Rule | What it flags |
+| --- | --- |
+| **INVALID\_WEIGHT** | Tekla reports weight 0 (error). |
+| **SHAPE\_UNKNOWN** | Shape code UNKNOWN or 99, or Tekla's own recognition says UNKNOWN (warning). |
+| **LENGTH\_MAX** | Longer than the longest bar in the limits, 12 m by default (error). |
+| **BEND\_RADIUS, HOOK, OFF\_PLANE** | Bend radius below the catalog minimum (error; [uRebarShape](../../model-edit/urebarshape/) › To catalog); hook tail shorter than the minimum ([uRebarHook](../../model-edit/urebarhook/) › Set tail) or hook off the catalog (To catalog) (warning); polygon points off their plane (warning; [uRebarShape](../../model-edit/urebarshape/) › Flatten). These read every bar in full, so they run only when the scope holds at most the number of objects set under the limits (300 by default). |
+| **NOT\_NUMBERED, NUMBERING\_OUTDATED** | Rebar position empty (or "?"); numbering not up to date (warnings). |
+| **POS\_SIGNATURE\_MISMATCH** | One rebar position stands for different bars: grade, size, shape, length, DIM\_A to DIM\_G, bend radius or hooks differ by more than the same-bar tolerance (1 mm by default). The differing values are shown in red (error). |
+| **SIGNATURE\_POS\_SPLIT** | The same bar under several rebar positions (info only: numbering settings can do this on purpose). |
+| **NO\_CAST\_UNIT** | The bar's cast unit position is empty (warning). |
+| **NAME\_UNKNOWN, NAME\_CLASS** | Name not in your list of names (warning); class does not match the name (error). They need the lists in `RebarCheck.json` and stay off until then. |
+
+*Accept* marks the open findings of the selected bars as a known exception; they stay accepted until the bar changes. The *Log* button in the header shows what each scan read and how long it took, and warns when a rule flags more than half of the objects (usually a sign that its settings are wrong).
+
+**Settings and rules per model.** The gear menu opens *Limits of the checks* (hook tail minimum, plane tolerance, longest bar, same-bar tolerance, how many objects the geometry rules read, the share that makes a rule noisy) and switches the rules on and off; both are saved in `RebarCheck.json` in the model folder. The same file can also sit in an XS\_FIRM or XS\_PROJECT folder: the files are combined, and the model folder wins over the project, the project over the firm. Accepted findings are kept in `RebarCheck.accepted.json` in the model folder.
 
 **How to use:**
 
-1.  Select reinforcement in the model. The dialog always follows the Tekla selection; switch *Hold the view* on to keep the bars shown now whatever you select in Tekla. The reload button (circular arrow) reads the bars again: from the model when the view is held, from the Tekla selection otherwise; bars with unapplied sketch edits are kept. The pin button keeps the window on top of Tekla; the gear opens the settings. Every control has a tooltip.
-2.  Click a point, a leg or a hook in the sketch and edit its values in the panel. Drag a point to slide it along a leg (10 mm steps, Shift for 1 mm). Double-click selects and zooms in Tekla.
-3.  Tick *Preview sketch in model* to see the edited polygon, with leg lengths and hook tails, as temporary graphics in the active view. Press *Apply to model* to write it, or *Revert* to drop unapplied edits.
-
-| Option | What it does |
-| --- | --- |
-| **Dimensions** | Length (L1 / Ln) and angle of the selected leg. *Keep angles* on: changing a leg moves the rest of the bar along, so no other angle changes. Off: only that leg's end point moves. |
-| **Hooks** | Angle (90°, 135°, 180°) and tail length (mm or × d) of the start and end hooks. *Reverse* turns each hook to the other side: the angle is negated and the hook becomes a custom hook. |
-| **Shape** | Reverse the point order, *Offset* every point along the plane normal, or *Flatten* every point onto the plane. The plane is fitted automatically (best fit) or defined by picking 3 points. |
-| **Standards** | Checks every bend radius and hook against the reinforcement catalog (`rebar_database.inp`) row for the bar's grade, size and usage: the minimum bend radius, and the radius and length of the 90°, 135° and 180° hooks. A bend below the minimum, or a custom hook that differs from the catalog, turns the bar's status in the list to a warning. *Correct to catalog* sets the flagged bend radii and hook radii/lengths to the catalog values. Under *Settings* (the gear) the switches choose which of bend radii, hook radii and hook lengths are corrected, *Keep larger bends* (on by default) leaves radii above the minimum alone, and *Catalog usage* Auto takes tie/stirrup for a closed bar and main otherwise. In the bars list, invalid bars (Tekla reports weight 0) are red, shapes Tekla does not recognise (its own recognition says UNKNOWN, or the SHAPE code from your rebar shape rules is UNKNOWN or 99) brown, bars longer than the limit under Settings (default 12 m) teal, bend radius problems purple, hook problems orange and off-plane points blue; the list is grouped in that order and the *Show* drop-down at the top limits the list to one kind. Rebar sets are read-only, so they are left out of the list (the status line says how many). The weight and shape warnings can be turned off in Settings, and a longest bar of 0 turns the length warning off. Hooks that use a standard 90/135/180 shape already follow the catalog. A tapered group is checked on its first polygon. |
-| **Range** | Reverse range for rebar groups. Spacing, exclude and offsets stay in Tekla's own rebar dialog. |
-| **Several bars at once** | The bars list takes Ctrl/Shift-click. With two or more rows selected the footer switches to *Selected*, so one press of the operation (for example *Correct to catalog*) runs on exactly those bars. Right-click: *Select all in this group* picks every bar of a group (for example all the Bend radius ones); *Skip in "All that fit"* marks special bars (a bar with a deliberate radius) so *All that fit* leaves them out for the rest of the session, and *Include again* undoes it. *Selected* always runs on what is selected, skipped or not. |
-| **Re-pick points** | Picks the polygon again in Tekla, with Tekla's own snapping. |
+1.  Choose the scope and scan (circular arrow), or simply select reinforcement in the model with the live scope. Double-click a row to select its bars in Tekla and zoom to them, or switch on *Select on click* in the View menu to select them with a single click. The pin button keeps the window on top of Tekla. Every control has a tooltip.
+2.  Look at the groups with errors first. Press a group's select button (or select rows), then run the tool the row names; the selected bars are the ones it works on.
+3.  Scan again to see the result: with the live scope that is one click.

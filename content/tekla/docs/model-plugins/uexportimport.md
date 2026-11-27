@@ -1,7 +1,7 @@
 ---
 title: "uExportImport"
 description: "Moves a model between Tekla versions through an XML file: export it here, then open a new, empty model in the other version and import the same file there."
-weight: 4
+weight: 2
 aliases: ["/tekla/help/uexportimport/"]
 ---
 
@@ -10,7 +10,7 @@ aliases: ["/tekla/help/uexportimport/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/uexportimport.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uExportImport`
+**Where to find it:** Applications & Components → Comma → General → `uExportImport`
 {{% /callout %}}
 
 Moves a model between Tekla versions through an XML file: export it here, then open a new, empty model in the other version and import the same file there.

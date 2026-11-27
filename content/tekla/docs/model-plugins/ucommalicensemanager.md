@@ -1,7 +1,7 @@
 ---
 title: "uCommaLicenseManager"
 description: "Manages the Comma licence for this machine — shows the Machine ID (with a Copy button), current licence/trial status, and lets you activate a licence key. No…"
-weight: 6
+weight: 4
 aliases: ["/tekla/help/ucommalicensemanager/"]
 ---
 
@@ -10,7 +10,7 @@ aliases: ["/tekla/help/ucommalicensemanager/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/ucommalicensemanager.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uCommaLicenseManager`
+**Where to find it:** Applications & Components → Comma → General → `uCommaLicenseManager`
 {{% /callout %}}
 
 Manages the Comma licence for this machine — shows the Machine ID (with a Copy button), current licence/trial status, and lets you activate a licence key. No drawing or model needs to be open to use it.

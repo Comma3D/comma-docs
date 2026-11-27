@@ -9,5 +9,5 @@ weight: 1
 {{< cards >}}
   {{< card link="installing/" title="Installing Comma" subtitle="Every tool documented on this page ships together in a single file, CommaTs.tsep — one install gives you every plugin below, both macro libraries, the Comma…" >}}
 
-  {{< card link="how-to-use-this-document/" title="How to use this document" subtitle="Plugins live in Tekla under Applications & Components (Ctrl+F), under the Comma group. Every plugin also has its own button on a dedicated Comma ribbon tab…" >}}
+  {{< card link="how-to-use-this-document/" title="How to use this document" subtitle="Plugins live in Tekla under Applications & Components (Ctrl+F), under the Comma group, in the sub-groups General (Rebar Class Decoder, License, Export Import)…" >}}
 {{< /cards >}}

@@ -10,7 +10,7 @@ aliases: ["/tekla/help/ufitplate/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/ufitplate.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uFitPlate` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uFitPlate` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Fits ContourPlate edges and manual BentPlate leg edges to a face, a three-point plane or a line.

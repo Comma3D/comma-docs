@@ -1,7 +1,7 @@
 ---
 title: "uRebarClassDecoder"
 description: "Two modes, picked from the Mode dropdown at the top of the dialog. Both work the same way otherwise: run on whatever is selected in the model, or on the entire…"
-weight: 5
+weight: 3
 aliases: ["/tekla/help/urebarclassdecoder/"]
 ---
 
@@ -10,7 +10,7 @@ aliases: ["/tekla/help/urebarclassdecoder/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/urebarclassdecoder.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Rebar → `uRebarClassDecoder` (also on the Comma ribbon tab)
+**Where to find it:** Applications & Components → Comma → General → `uRebarClassDecoder` (also on the Comma ribbon tab, General block)
 {{% /callout %}}
 
 Two modes, picked from the Mode dropdown at the top of the dialog. Both work the same way otherwise: run on whatever is selected in the model, or on the entire model.

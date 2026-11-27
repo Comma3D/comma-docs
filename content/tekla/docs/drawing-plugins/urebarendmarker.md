@@ -10,7 +10,7 @@ aliases: ["/tekla/help/urebarendmarker/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/urebarendmarker.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uRebarEndMarker`
+**Where to find it:** Applications & Components → Comma → Drawing → `uRebarEndMarker`
 {{% /callout %}}
 
 Places associative notes on the ends of visible reinforcement bars in a drawing — one note per end, independently switchable.

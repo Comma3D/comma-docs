@@ -10,7 +10,7 @@ aliases: ["/tekla/help/urebarlayermarker/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/urebarlayermarker.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uRebarLayerMarker`
+**Where to find it:** Applications & Components → Comma → Drawing → `uRebarLayerMarker`
 {{% /callout %}}
 
 Places a layer symbol on rebar based on its class, using up to 16 configurable class-list → symbol slots (8 shown under a "Top" tab, 8 under "Bottom" — a presentation split: all 16 are evaluated together, the Top rows before the Bottom rows, first match wins). That covers up to eight layers per face.

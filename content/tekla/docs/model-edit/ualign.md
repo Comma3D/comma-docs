@@ -10,7 +10,7 @@ aliases: ["/tekla/help/ualign/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/ualign.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uAlign` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uAlign` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Makes beams, plates, bolt arrays, control lines and more parallel (or perpendicular) to a picked face, plane or line, without changing their length.

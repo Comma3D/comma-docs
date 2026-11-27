@@ -10,7 +10,7 @@ aliases: ["/tekla/help/usplit/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/usplit.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uSplit` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uSplit` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Splits ContourPlates, Beams and ControlLines at a point, a line, or a plane.

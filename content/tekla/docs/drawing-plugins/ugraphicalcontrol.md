@@ -10,7 +10,7 @@ aliases: ["/tekla/help/ugraphicalcontrol/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/ugraphicalcontrol.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uGraphicalControl`
+**Where to find it:** Applications & Components → Comma → Drawing → `uGraphicalControl`
 {{% /callout %}}
 
 Assigns rebar orientation/scale UDAs (used for graphical bar control) to bars matching a Mark search text.

@@ -1,7 +1,7 @@
 ---
 title: "uRemoveBools"
 description: "Strips Boolean operations from picked parts — the fastest way to \"un-cut\" a part without hunting down each individual cutting part by hand. Five independent…"
-weight: 2
+weight: 14
 aliases: ["/tekla/help/uremovebools/"]
 ---
 
@@ -10,7 +10,7 @@ aliases: ["/tekla/help/uremovebools/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/uremovebools.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uRemoveBools`
+**Where to find it:** Applications & Components → Comma → Model Edit → `uRemoveBools` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Strips Boolean operations from picked parts — the fastest way to "un-cut" a part without hunting down each individual cutting part by hand. Five independent switches decide exactly what gets removed.

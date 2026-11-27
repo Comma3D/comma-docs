@@ -10,7 +10,7 @@ aliases: ["/tekla/help/uswap/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/uswap.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uSwap` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uSwap` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Reverses the direction (the handles) of selected objects. It does not exchange the locations of two objects.

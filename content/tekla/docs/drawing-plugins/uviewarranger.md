@@ -10,7 +10,7 @@ aliases: ["/tekla/help/uviewarranger/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/uviewarranger.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uViewArranger`
+**Where to find it:** Applications & Components → Comma → Drawing → `uViewArranger`
 {{% /callout %}}
 
 Aligns and distributes the selected drawing views — select two or more views on a sheet first, then click an align or distribute button; each button acts immediately, there is no separate Apply step.

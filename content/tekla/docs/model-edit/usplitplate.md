@@ -10,7 +10,7 @@ aliases: ["/tekla/help/usplitplate/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/usplitplate.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → Model Edit → `uSplitPlate` (also on the Comma ribbon tab, Model Edit group)
+**Where to find it:** Applications & Components → Comma → Model Edit → `uSplitPlate` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Splits contour plates into replacement plates: the source plate is replaced after the outputs and assembly have been checked. This is separate from Split (which cuts in place).

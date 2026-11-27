@@ -1,7 +1,7 @@
 ---
 title: "uSectionCutter"
 description: "Cuts a section line/plane through picked parts and draws the resulting intersection. Runs as a one-shot tool: click it once, then keep picking — it stays open…"
-weight: 1
+weight: 13
 aliases: ["/tekla/help/usectioncutter/"]
 ---
 
@@ -10,7 +10,7 @@ aliases: ["/tekla/help/usectioncutter/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/usectioncutter.svg" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uSectionCutter`
+**Where to find it:** Applications & Components → Comma → Model Edit → `uSectionCutter` (also on the Comma ribbon tab, Model Edit block)
 {{% /callout %}}
 
 Cuts a section line/plane through picked parts and draws the resulting intersection. Runs as a one-shot tool: click it once, then keep picking — it stays open until you press <kbd>Esc</kbd>.

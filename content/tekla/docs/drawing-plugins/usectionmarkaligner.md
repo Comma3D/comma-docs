@@ -10,7 +10,7 @@ aliases: ["/tekla/help/usectionmarkaligner/"]
 <img class="tool-icon" src="../../../../images/tekla/tools/usectionmarkaligner.png" alt="" width="48" height="48" style="display:block;margin:0 0 1rem;background:#fff;border-radius:8px;padding:4px" />
 
 {{% callout type="info" %}}
-**Where to find it:** Applications & Components → Comma → `uSectionMarkAligner` (also on the Drawing ribbon tab, *Section Marks*)
+**Where to find it:** Applications & Components → Comma → Drawing → `uSectionMarkAligner` (also on the Drawing ribbon tab, *Section Marks*)
 {{% /callout %}}
 
 Lines up the ends of section marks you have already selected in the active drawing, renames them, and can number them in reading order. The dialog stays open, so another group is just select, then click again.
